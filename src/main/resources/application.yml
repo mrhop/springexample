@@ -1,0 +1,14 @@
+connection:
+    name: admi
+    remoteAddress: 192
+
+---
+spring.profiles: prod
+spring.profiles.include: proddb,prodmq
+---
+spring.profiles: test
+spring.profiles.include: test1,test2
+---
+spring:
+  profiles:
+    active: proddb
