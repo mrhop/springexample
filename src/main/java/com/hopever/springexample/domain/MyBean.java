@@ -1,20 +1,24 @@
 package com.hopever.springexample.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-
 /**
  * Created by Donghui Huo on 2015/12/24.
  */
 @Component
-@Profile("proddb")
+@Profile("prod")
 public class MyBean {
+    final static Logger logger = LoggerFactory.getLogger(MyBean.class);
 
     @Value("${connection.name}")
     private String name;
 
     public String getName(){
+        logger.info("Begin prod getName......");
+        logger.error("wrong message");
         return name;
     }
 

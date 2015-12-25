@@ -15,6 +15,7 @@ public class MyBeanTest extends MyBean {
     private String name;
 
     public String getName(){
+        logger.info("Begin test getName......");
         return name;
     }
 

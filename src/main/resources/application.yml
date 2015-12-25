@@ -5,10 +5,23 @@ connection:
 ---
 spring.profiles: prod
 spring.profiles.include: proddb,prodmq
+
+spring:
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/test
+
 ---
 spring.profiles: test
 spring.profiles.include: test1,test2
+spring:
+  datasource:
+    username: sa
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    url: jdbc:hsqldb:file:data/mydb
 ---
 spring:
   profiles:
-    active: proddb
+    active: prod

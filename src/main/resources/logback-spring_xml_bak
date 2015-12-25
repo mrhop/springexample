@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+    <appender name="HtmlFile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}%relative%thread%mdc%level%logger%msg</pattern>
+            </layout>
+        </encoder>
+        <file>test.html</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>test_%i.html</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+   <!-- <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>com.mysql.jdbc.Driver</driverClass>
+            <url>jdbc:mysql://localhost:3306/test</url>
+            <user>root</user>
+            <password>root</password>
+        </connectionSource>
+    </appender>-->
+
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="HtmlFile"/>
+    </root>
+    <springProfile name="test">
+        <appender name="DBTest" class="ch.qos.logback.classic.db.DBAppender">
+            <connectionSource
+                    class="ch.qos.logback.core.db.DataSourceConnectionSource">
+                <dataSource class="org.apache.tomcat.jdbc.pool.DataSource">
+                    <driverClassName>org.hsqldb.jdbc.JDBCDriver</driverClassName>
+                    <url>jdbc:hsqldb:file:data/mydb</url>
+                    <username>XXXXXX</username>
+                </dataSource>
+            </connectionSource>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="DBTest"/>
+        </root>
+        <logger name="com.hopever.springexample" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="HtmlFile"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="prod">
+        <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+            <connectionSource
+                    class="ch.qos.logback.core.db.DataSourceConnectionSource">
+                <dataSource class="org.apache.tomcat.jdbc.pool.DataSource">
+                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                    <url>jdbc:mysql://localhost:3306/test</url>
+                    <username>XXXXXX</username>
+                    <password>XXXXXX</password>
+                </dataSource>
+            </connectionSource>
+        </appender>
+        <appender name="EMAIL" class="ch.qos.logback.classic.net.SMTPAppender">
+            <smtpHost>smtp.163.com</smtpHost>
+            <username>XXXXXX@163.com</username>
+            <password>XXXXXX</password>
+            <to>XXXXXX@XXXXXXX</to>
+            <from>XXXXXX@163.com</from>
+            <subject>TESTING: %logger{20} - %m</subject>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%date %-5level %logger{35} - %message%n</pattern>
+            </layout>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="DB"/>
+        </root>
+        <logger name="com.hopever.springexample" level="INFO" additivity="false">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="HtmlFile"/>
+            <appender-ref ref="DB"/>
+        </logger>
+        <logger name="com.hopever.springexample" level="ERROR" additivity="false">
+            <appender-ref ref="EMAIL"/>
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+
+</configuration>
