@@ -37,12 +37,14 @@ dependencyManagement {
 }
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-devtools'{ext.optional = true}
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-mail'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.hsqldb:hsqldb'
     compile 'mysql:mysql-connector-java'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     compile ('org.springframework.boot:spring-boot-configuration-processor') {ext.optional = true}
+    compile 'org.springframework.integration:spring-integration-xml'
 }
 compileJava.dependsOn(processResources)

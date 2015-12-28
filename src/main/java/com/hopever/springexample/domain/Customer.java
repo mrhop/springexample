@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class Customer {
     final static Logger logger = LoggerFactory.getLogger(Customer.class);
 
-    @Value("${name1}")
+    @Value("${connection.name}")
     private String name;
 
     public String getName(){

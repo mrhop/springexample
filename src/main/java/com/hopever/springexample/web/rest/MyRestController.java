@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Donghui Huo on 2015/12/25.
  */
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/rest")
 public class MyRestController {
     @Resource
     private User user;
