@@ -1,0 +1,3 @@
+the order of HttpMessageConverters?
+
+curl  GET -H "Accept: application/json" http://localhost:8080/simple/data/huodh/1911-11-11

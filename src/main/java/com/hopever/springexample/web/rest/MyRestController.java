@@ -2,10 +2,7 @@ package com.hopever.springexample.web.rest;
 
 import com.hopever.springexample.domain.Customer;
 import com.hopever.springexample.domain.User;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -20,10 +17,10 @@ public class MyRestController {
     @Resource
     private User user;
 
-    @RequestMapping(value="/{user}", method= RequestMethod.GET)
-    public User getUser(@PathVariable String user) {
+    @RequestMapping(value="/{name}/{birthday}", method= RequestMethod.GET)
+    public User getUser(@ModelAttribute User user) {
         // ...
-        return new User(user);
+        return user;
     }
 
     @RequestMapping(value="/{user}/customers", method=RequestMethod.GET)

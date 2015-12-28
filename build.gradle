@@ -46,5 +46,6 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     compile ('org.springframework.boot:spring-boot-configuration-processor') {ext.optional = true}
     compile 'org.springframework.integration:spring-integration-xml'
+    compile 'com.thoughtworks.xstream:xstream'
 }
 compileJava.dependsOn(processResources)
