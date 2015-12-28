@@ -1,23 +1,17 @@
 package com.hopever.springexample.web.Config;
 
-import com.hopever.springexample.domain.User;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpInputMessage;
-import org.springframework.http.HttpOutputMessage;
-import org.springframework.http.converter.AbstractHttpMessageConverter;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
+import org.springframework.oxm.xstream.XStreamMarshaller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
 import org.springframework.web.bind.support.WebBindingInitializer;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -60,10 +54,10 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         XStreamMarshaller xstreamMarshaller = new XStreamMarshaller();
         xmlConverter.setMarshaller(xstreamMarshaller);
         xmlConverter.setUnmarshaller(xstreamMarshaller);
-        return new HttpMessageConverters(new xmlConverter());
+        return new HttpMessageConverters(xmlConverter);
     }
 
-    public class UserHttpMessageConverter extends AbstractHttpMessageConverter<User> {
+    /*public class UserHttpMessageConverter extends AbstractHttpMessageConverter<User> {
 
         @Override
         protected boolean supports(Class<?> clazz) {
@@ -83,7 +77,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         }
 
 
-    }
+    }*/
 
     @Bean
     public WebBindingInitializer customerBinding() {
