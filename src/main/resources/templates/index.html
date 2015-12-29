@@ -6,8 +6,14 @@
     <link rel="stylesheet" type="text/css" href="/css/spring.css" th:href="@{/css/spring.css}" />
 </head>
 <body>
+<p th:text="${#conversions.convert(user,'String')}">you shall know</p>
 <p th:text="${user.name}">you shall know</p>
-<p th:text="${user.birthday}">birthday</p>
+<p th:text="${#conversions.convert(user.birthday,'String')}">birthday</p>
 </body>
+<form action="#" th:action="@{/simple/add?do=save}" th:object="${user}" method="post">
+    <input type="text" th:field="*{name}" />
+    <input type="text" th:field="*{birthday}" id="birthday" name="birthday" />
+    <button type="submit" th:text="#{user.save}">save</button>
+</form>
 <script type="text/javascript" th:src="@{/js/lib/mymodule.js}"></script>
 </html>
