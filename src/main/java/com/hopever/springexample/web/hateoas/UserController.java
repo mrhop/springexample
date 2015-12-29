@@ -35,5 +35,17 @@ public class UserController {
         ur.add(new Link("http://"+host+"/people"));
         return new ResponseEntity<UserResource>(ur, HttpStatus.OK);
     }
+    @RequestMapping(path="/json",method = RequestMethod.GET)
+    @ResponseBody
+    public UserResource showAllWithJson() {
+        User u= new User();
+        u.setBirthday(new Date());
+        u.setName("you know");
+        UserResource ur = new UserResource();
+        ur.setUser(u);
+        ur.add(new Link("http://"+host+"/people"));
+        return ur;
+    }
+
 
 }
