@@ -18,7 +18,7 @@ public class MyRestController {
     private User user;
 
     @RequestMapping(value="/{name}/{birthday}", method= RequestMethod.GET)
-    public User getUser(@ModelAttribute User user) {
+    public User getUser( User user) {
         // ...
         return user;
     }

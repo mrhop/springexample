@@ -224,14 +224,14 @@ public class AppConfig extends WebMvcConfigurerAdapter {
                 if (user == null) {
                     return "";
                 }
-                return user.getName()+"______"+new SimpleDateFormat("yyyy-MM").format(user.getBirthday());
+                return user.getName() + "______" + new SimpleDateFormat("yyyy-MM").format(user.getBirthday());
             }
 
             public User parse(String formatted, Locale locale) throws ParseException {
                 if (formatted.length() == 0) {
                     return null;
                 }
-                User user =new User();
+                User user = new User();
                 String[] strArr = formatted.split("______");
                 user.setName(strArr[0]);
                 user.setBirthday(new SimpleDateFormat("yyyy-MM").parse(strArr[1]));
@@ -241,4 +241,22 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         registry.addFormatter(new UserFormatter());
     }
 
+
+    //custom error
+    /*@Bean
+    public EmbeddedServletContainerCustomizer containerCustomizer() {
+        return new MyCustomizer();
+    }
+
+// ...
+
+    private static class MyCustomizer implements EmbeddedServletContainerCustomizer {
+
+        @Override
+        public void customize(ConfigurableEmbeddedServletContainer container) {
+            container.addErrorPages(new ErrorPage(HttpStatus.BAD_REQUEST, "/400"));
+        }
+
+    }
+*/
 }
