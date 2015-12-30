@@ -1,1 +1,1 @@
-abc/def
+https://docs.spring.io/spring-hateoas/docs/current/reference/pdf/spring-hateoas-reference.pdf

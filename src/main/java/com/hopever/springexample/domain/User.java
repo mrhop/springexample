@@ -25,6 +25,8 @@ public class User {
         this.name = name;
     }
 
+    private Integer id;
+
     @Value("${connection.name}")
     private String name;
 
@@ -48,5 +50,13 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.hateoas.UriTemplate;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
+import org.springframework.hateoas.hal.CurieProvider;
+import org.springframework.hateoas.hal.DefaultCurieProvider;
 import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
 import org.springframework.oxm.xstream.XStreamMarshaller;
 import org.springframework.validation.MessageCodesResolver;
@@ -24,6 +28,7 @@ import java.util.Locale;
  */
 
 @Configuration
+@EnableHypermediaSupport(type= {EnableHypermediaSupport.HypermediaType.HAL})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     final static Logger logger = LoggerFactory.getLogger(AppConfig.class);
@@ -259,4 +264,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
     }
 */
+    @Bean
+    public CurieProvider curieProvider() {
+        return new DefaultCurieProvider("ex", new UriTemplate("http://www.example.com/rels/{rel}"));
+    }
+
 }
