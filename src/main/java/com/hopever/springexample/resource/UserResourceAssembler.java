@@ -2,6 +2,7 @@ package com.hopever.springexample.resource;
 
 import com.hopever.springexample.domain.User;
 import com.hopever.springexample.web.hateoas.UserController;
+import org.springframework.beans.BeanUtils;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,7 @@ public class UserResourceAssembler extends ResourceAssemblerSupport<User, UserRe
     @Override
     public UserResource toResource(User entity) {
         UserResource r = createResourceWithId(entity.getId(),entity);
+        BeanUtils.copyProperties(entity,r);
         return r;
     }
 }

@@ -36,8 +36,8 @@ public class UserController {
         u.setBirthday(new Date());
         u.setName("you know");
         UserResource ur = new UserResource();
-        ur.name="you know";
-        ur.birthday=new Date();
+        ur.setName("you know");
+        ur.setBirthday(new Date());
         Link link = linkTo(UserController.class).withRel("/");
         ur.add(link);
         return new ResponseEntity<UserResource>(ur, HttpStatus.OK);
@@ -46,8 +46,8 @@ public class UserController {
     @ResponseBody
     public UserResource showAllWithJson() {
         UserResource ur = new UserResource();
-        ur.name="you know";
-        ur.birthday=new Date();
+        ur.setName("you know");
+        ur.setBirthday(new Date());
        // ur.setUser(u);
         ur.add(new Link("http://"+host+"/people"));
         return ur;
