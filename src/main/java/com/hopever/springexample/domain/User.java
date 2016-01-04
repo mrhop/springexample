@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.hateoas.core.Relation;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -15,10 +16,17 @@ import java.util.Date;
  */
 @Component
 @Profile("prod")
+@Relation(value = "usr", collectionRelation = "usrList")
 public class User {
     final static Logger logger = LoggerFactory.getLogger(User.class);
 
     public User() {
+    }
+
+    public User(Integer id,String name,Date date) {
+        this.id =id;
+        this.name = name;
+        this.birthday = date;
     }
 
     public User(String name) {

@@ -17,6 +17,7 @@ public class MyRestController {
     @Resource
     private User user;
 
+    //@CrossOrigin(value ="http://localhost" )
     @RequestMapping(value="/{name}/{birthday}", method= RequestMethod.GET)
     public User getUser( User user) {
         // ...

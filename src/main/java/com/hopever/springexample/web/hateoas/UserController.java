@@ -1,13 +1,15 @@
 package com.hopever.springexample.web.hateoas;
 
 import com.hopever.springexample.domain.User;
+import com.hopever.springexample.repository.UserRepository;
 import com.hopever.springexample.resource.UserResource;
 import com.hopever.springexample.resource.UserResourceAssembler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.hateoas.EntityLinks;
+import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.config.EnableEntityLinks;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import java.util.Date;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-
 /**
  * Created by Donghui Huo on 2015/12/29.
  */
 @Controller
-@EnableEntityLinks
 @RequestMapping("/user/hateoas")
+@ExposesResourceFor(User.class)
 public class UserController {
     @Resource
     UserResourceAssembler ura;
@@ -34,21 +34,18 @@ public class UserController {
     @Autowired
     private EntityLinks entityLinks;
 
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Value("${myhost.domain}")
     private String host;
 
     @RequestMapping(method = RequestMethod.GET)
-    public HttpEntity<UserResource> showAll() {
-        User u= new User();
-        u.setId(123);
-        u.setBirthday(new Date());
-        u.setName("you know");
-        UserResource ur = new UserResource();
-        ur.setName("you know");
-        ur.setBirthday(new Date());
-        Link link = linkTo(UserController.class).withRel("/");
-        ur.add(this.entityLinks.linkToSingleResource(UserResource.class, ur.getId()));
-        return new ResponseEntity<UserResource>(ur, HttpStatus.OK);
+    public HttpEntity<Resources<User>> showAll() {
+        Resources<User> resources = new Resources<User>(this.userRepository.findAll());
+        resources.add(this.entityLinks.linkToCollectionResource(User.class));
+        return new ResponseEntity<Resources<User>>(resources, HttpStatus.OK);
     }
     @RequestMapping(path="/json",method = RequestMethod.GET)
     @ResponseBody

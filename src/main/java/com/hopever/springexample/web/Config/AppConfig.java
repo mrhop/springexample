@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.format.Formatter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.hateoas.UriTemplate;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.hateoas.hal.CurieProvider;
 import org.springframework.hateoas.hal.DefaultCurieProvider;
 import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
 import org.springframework.oxm.xstream.XStreamMarshaller;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -28,7 +29,6 @@ import java.util.Locale;
  */
 
 @Configuration
-@EnableHypermediaSupport(type= {EnableHypermediaSupport.HypermediaType.HAL})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     final static Logger logger = LoggerFactory.getLogger(AppConfig.class);
@@ -268,5 +268,25 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public CurieProvider curieProvider() {
         return new DefaultCurieProvider("ex", new UriTemplate("http://www.example.com/rels/{rel}"));
     }
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                //registry.addMapping("/rest/**");
+            }
+        };
+    }
+
+    /*@Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+        factory.setPort(9000);
+        factory.setSessionTimeout(10, TimeUnit.MINUTES);
+        factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html"));
+        return factory;
+    }*/
+
 
 }
