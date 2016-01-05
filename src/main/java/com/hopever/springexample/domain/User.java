@@ -43,7 +43,7 @@ public class User {
     private Date birthday;
 
     public String getName() {
-        logger.info("Begin prod getName......");
+       // logger.info("Begin prod getName......");
         return name;
     }
 

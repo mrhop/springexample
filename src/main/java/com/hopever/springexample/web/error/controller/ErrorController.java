@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ErrorController {
 
-    @RequestMapping()
+    @RequestMapping("/400")
     public String Error400(){
         return "error/400";
     }
