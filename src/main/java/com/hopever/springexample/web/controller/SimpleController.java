@@ -15,6 +15,8 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -34,8 +36,8 @@ public class SimpleController {
 
     @RequestMapping(value = "/{name}/{birthday}", method = RequestMethod.GET)
     public String getUser(@PathVariable String name, User user
-            , Model m) {
-        m.addAttribute(user);
+            , Model m, HttpServletRequest request) throws ServletException {
+         m.addAttribute(user);
         return "index";
     }
 
