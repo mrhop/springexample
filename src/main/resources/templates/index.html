@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="/css/spring.css" th:href="@{/css/spring.css}" />
 </head>
 <body>
+<a th:if="${param.logout == null}"   th:href="@{/logout}">log out</a>
+
 <p th:text="${#conversions.convert(user,'String')}">you shall know</p>
 <p th:text="${user.name}">you shall know</p>
 <p th:text="${#conversions.convert(user.birthday,'String')}">birthday</p>

@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by Donghui Huo on 2015/12/24.
  */
 @Component
-@Profile("prod")
+@Profile("test")
 @Relation(value = "usr", collectionRelation = "usrList")
 public class User {
     final static Logger logger = LoggerFactory.getLogger(User.class);

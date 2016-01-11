@@ -24,4 +24,4 @@ spring:
 ---
 spring:
   profiles:
-    active: prod
+    active: test
