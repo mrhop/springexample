@@ -3,7 +3,6 @@ package com.hopever.springexample.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import javax.sql.DataSource;
@@ -11,7 +10,7 @@ import javax.sql.DataSource;
 /**
  * Created by Donghui Huo on 2016/1/5.
  */
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -34,8 +33,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         /*auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");*/
-        auth.jdbcAuthentication().dataSource(dataSource).withDefaultSchema()
-                .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("USER", "ADMIN");
+        auth.jdbcAuthentication().dataSource(dataSource);
+                //.withDefaultSchema()
+                //.withUser("user").password("password").roles("USER").and()
+                //.withUser("admin").password("password").roles("USER", "ADMIN");
     }
 }
