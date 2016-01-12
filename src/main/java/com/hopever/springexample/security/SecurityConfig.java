@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**", "/about", "/login").permitAll()
+                .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**", "/about", "/login","/simple/**").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                 .anyRequest().authenticated()
@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         /*auth
                 .inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER");*/
-        auth.jdbcAuthentication().dataSource(dataSource);
+        //auth.jdbcAuthentication().dataSource(dataSource);
                 //.withDefaultSchema()
                 //.withUser("user").password("password").roles("USER").and()
                 //.withUser("admin").password("password").roles("USER", "ADMIN");

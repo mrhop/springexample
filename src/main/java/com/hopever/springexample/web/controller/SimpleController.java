@@ -1,8 +1,10 @@
 package com.hopever.springexample.web.controller;
 
 import com.hopever.springexample.domain.User;
+import com.hopever.springexample.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Donghui Huo on 2015/12/28.
@@ -29,7 +32,8 @@ public class SimpleController {
 
     final static Logger logger = LoggerFactory.getLogger(SimpleController.class);
 
-
+    @Autowired
+    private UserService userService;
 
     @Resource
     private ConversionService mvcConversionService;
@@ -37,7 +41,7 @@ public class SimpleController {
     @RequestMapping(value = "/{name}/{birthday}", method = RequestMethod.GET)
     public String getUser(@PathVariable String name, User user
             , Model m, HttpServletRequest request) throws ServletException {
-         m.addAttribute(user);
+        m.addAttribute(user);
         return "index";
     }
 
@@ -49,22 +53,44 @@ public class SimpleController {
         return "index";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST,params={"do=save"})
+    @RequestMapping(value = "/add", method = RequestMethod.POST, params = {"do=save"})
     public String addUser(
             final User user, final BindingResult bindingResult, final ModelMap m) {
-       // m.addAttribute(user);
+        // m.addAttribute(user);
         //do save
         /*logger.info(mvcConversionService.convert(user.getBirthday(),String.class));
         logger.info(mvcConversionService.convert("1933-11-11",Date.class).toString());
-*/        m.addAttribute(user);
+*/
+        m.addAttribute(user);
         return "index";
     }
 
     @RequestMapping(value = "/data/{name}/{birthday}", method = RequestMethod.GET)
-    public @ResponseBody User getUserAll(User user
+    @ResponseBody public User getUserAll(User user
             , Model m) {
         return user;
     }
+
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    @ResponseBody public List<User> getUserAll() {
+        return this.userService.getUsers();
+    }
+
+    @RequestMapping(value = "/data/{id}", method = RequestMethod.GET)
+    @ResponseBody public User getUser(@PathVariable Integer id) {
+        return this.userService.getUser(id);
+    }
+
+    @RequestMapping(value = "/data/delete/{id}", method = RequestMethod.GET)
+    @ResponseBody public void deleteUser(@PathVariable Integer id) {
+        this.userService.deleteUser(id);
+    }
+
+    @RequestMapping(value = "/data/update/{user}", method = RequestMethod.GET)
+    @ResponseBody public void deleteUser(@PathVariable User user) {
+        this.userService.updateUser(user);
+    }
+
 
     class MobileValidator implements Validator {
 
@@ -74,8 +100,8 @@ public class SimpleController {
 
         public void validate(Object object, Errors errors) {
 
-            User user = (User)object;
-            if (user.getName() == null || user.getName().trim().length() == 0){
+            User user = (User) object;
+            if (user.getName() == null || user.getName().trim().length() == 0) {
                 errors.rejectValue("name", "name.required", "Name field is missing");
             }
         }
@@ -85,7 +111,7 @@ public class SimpleController {
     public void initBinder(WebDataBinder binder) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class,"birthday1", new CustomDateEditor(
+        binder.registerCustomEditor(Date.class, "birthday1", new CustomDateEditor(
                 dateFormat, false));
     }
 

@@ -1,6 +1,7 @@
 package com.hopever.springexample.repository;
 
 import com.hopever.springexample.domain.User;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 
@@ -35,4 +36,27 @@ public class InMemoryUserRepository implements UserRepository {
         }
         return null;
     }
+
+    @Override
+    public void deleteOne(Integer id) {
+        for (User user : this.users) {
+            if (ObjectUtils.nullSafeEquals(user.getId(), id)) {
+                this.users.remove(user);
+                return;
+            }
+        }
+    }
+
+    @Override
+    public void updateOne(User user) {
+        for (User userTmp : this.users) {
+            if (ObjectUtils.nullSafeEquals(userTmp.getId(), user.getId())) {
+                BeanUtils.copyProperties(user,userTmp);
+                this.users.remove(user);
+                return;
+            }
+        }
+    }
+
+
 }
