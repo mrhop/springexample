@@ -45,6 +45,7 @@ public class MultiHttpSecurityConfig {
                         O fsi) {
                     //fsi.
                     //sth need to do
+                    fsi.loginProcessingUrl("http://jimi.hendrix.myopenid.com/");
                     return fsi;
                 }
             }).and()

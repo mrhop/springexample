@@ -46,6 +46,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-security'
 
 
+    compile 'org.springframework.security:spring-security-openid'
     compile 'org.hsqldb:hsqldb'
     compile 'mysql:mysql-connector-java'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
