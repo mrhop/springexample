@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.openid.OpenIDLoginConfigurer;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
 /**
@@ -20,7 +19,8 @@ public class MultiHttpSecurityConfig {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user").password("password").roles("USER").and()
-                .withUser("admin").password("password").roles("USER", "ADMIN");
+                .withUser("admin").password("password").roles("USER", "ADMIN").and()
+                .withUser("mrhop1985.blogspot.com").password("password").roles("USER");
     }
 
     @Configuration
@@ -40,16 +40,40 @@ public class MultiHttpSecurityConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.antMatcher("/simple/**")
                     .authorizeRequests()
-                    .anyRequest().hasRole("USER").withObjectPostProcessor(new ObjectPostProcessor<OpenIDLoginConfigurer>() {
-                public <O extends OpenIDLoginConfigurer> O postProcess(
-                        O fsi) {
-                    //fsi.
-                    //sth need to do
-                    fsi.loginProcessingUrl("http://jimi.hendrix.myopenid.com/");
-                    return fsi;
-                }
-            }).and()
-                    .openidLogin();
+                    .anyRequest().hasRole("USER").and()
+                    .openidLogin().loginPage("/openIdLogin").permitAll().authenticationUserDetailsService(new CustomUserDetailsService())
+                    .attributeExchange("https://www.google.com/.*")
+                    .attribute("email")
+                    .type("http://axschema.org/contact/email")
+                    .required(true)
+                    .and()
+                    .attribute("firstname")
+                    .type("http://axschema.org/namePerson/first")
+                    .required(true)
+                    .and()
+                    .attribute("lastname")
+                    .type("http://axschema.org/namePerson/last")
+                    .required(true)
+                    .and()
+                    .and()
+                    .attributeExchange(".*yahoo.com.*")
+                    .attribute("email")
+                    .type("http://axschema.org/contact/email")
+                    .required(true)
+                    .and()
+                    .attribute("fullname")
+                    .type("http://axschema.org/namePerson")
+                    .required(true)
+                    .and()
+                    .and()
+                    .attributeExchange(".*myopenid.com.*")
+                    .attribute("email")
+                    .type("http://schema.openid.net/contact/email")
+                    .required(true)
+                    .and()
+                    .attribute("fullname")
+                    .type("http://schema.openid.net/namePerson")
+                    .required(true);
         }
     }
 
@@ -59,7 +83,7 @@ public class MultiHttpSecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**", "/about", "/login").permitAll()
+                    .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**","/images/**", "/about", "/login").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                     .anyRequest().authenticated().withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {

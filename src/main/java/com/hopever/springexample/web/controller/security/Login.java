@@ -17,6 +17,11 @@ public class Login {
         return "login";
     }
 
+    @RequestMapping(value = "/openIdLogin", method = RequestMethod.GET)
+    public String openIdLogin() throws ServletException {
+        return "openIdLogin";
+    }
+
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout( HttpServletRequest request) throws ServletException {
         request.logout();
