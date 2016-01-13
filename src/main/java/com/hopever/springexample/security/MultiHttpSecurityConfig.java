@@ -40,8 +40,8 @@ public class MultiHttpSecurityConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.antMatcher("/simple/**")
                     .authorizeRequests()
-                    .anyRequest().hasRole("USER").and()
-                    .openidLogin().loginPage("/openIdLogin").permitAll().authenticationUserDetailsService(new CustomUserDetailsService())
+                    .anyRequest().authenticated().and()
+                    .openidLogin().loginPage("/openidlogin").permitAll().authenticationUserDetailsService(new CustomUserDetailsService())
                     .attributeExchange("https://www.google.com/.*")
                     .attribute("email")
                     .type("http://axschema.org/contact/email")
@@ -83,7 +83,7 @@ public class MultiHttpSecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**","/images/**", "/about", "/login").permitAll()
+                    .authorizeRequests().antMatchers("/resources/**", "/css/**", "/js/**", "/v*/js/**", "/v*/css/**","/images/**", "/about", "/login","/openidlogin","/login/**").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/db/**").access("hasRole('ADMIN') and hasRole('DBA')")
                     .anyRequest().authenticated().withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {

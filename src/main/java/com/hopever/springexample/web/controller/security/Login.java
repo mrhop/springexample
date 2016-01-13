@@ -1,6 +1,8 @@
 package com.hopever.springexample.web.controller.security;
 
+import org.springframework.security.openid.OpenIDAuthenticationToken;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +19,7 @@ public class Login {
         return "login";
     }
 
-    @RequestMapping(value = "/openIdLogin", method = RequestMethod.GET)
+    @RequestMapping(value = "/openidlogin", method = {RequestMethod.GET})
     public String openIdLogin() throws ServletException {
         return "openIdLogin";
     }
@@ -26,5 +28,12 @@ public class Login {
     public String logout( HttpServletRequest request) throws ServletException {
         request.logout();
         return "login";
+    }
+
+
+    @RequestMapping(value = "/openid/user",method = RequestMethod.GET)
+    public String show(Model model, OpenIDAuthenticationToken authentication) {
+        model.addAttribute("authentication", authentication);
+        return "user/show";
     }
 }
