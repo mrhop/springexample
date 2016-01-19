@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * Created by Donghui Huo on 2015/12/28.
@@ -39,10 +41,17 @@ public class SimpleController {
     private ConversionService mvcConversionService;
 
     @RequestMapping(value = "/{name}/{birthday}", method = RequestMethod.GET)
-    public String getUser(@PathVariable String name, User user
-            , Model m, HttpServletRequest request) throws ServletException {
-        m.addAttribute(user);
-        return "index";
+    public Callable<String> getUser(@PathVariable String name, final User user
+            , final Model m, HttpServletRequest request,final Authentication a) throws ServletException {
+        return new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+               // Thread.sleep(500);
+                m.addAttribute(user);
+                return "index";
+            }
+        };
+
     }
 
 
