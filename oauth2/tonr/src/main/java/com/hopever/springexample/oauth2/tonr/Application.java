@@ -1,4 +1,4 @@
-package org.springframework.security.oauth.examples.sparklr;
+package com.hopever.springexample.oauth2.tonr;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
