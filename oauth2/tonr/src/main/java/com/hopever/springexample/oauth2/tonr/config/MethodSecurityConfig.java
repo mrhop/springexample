@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.springframework.security.oauth.examples.sparklr.config;
+package com.hopever.springexample.oauth2.tonr.config;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.expression.method.MethodSecurityExpressionHandler;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
@@ -26,10 +25,10 @@ import org.springframework.security.oauth2.provider.expression.OAuth2MethodSecur
  * @author Dave Syer
  *
  */
-@Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true, proxyTargetClass = true)
+//@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true,proxyTargetClass = true)
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
-   /*@Autowired
+   /* @Autowired
     private SecurityConfiguration securityConfig;*/
     
     @Override
