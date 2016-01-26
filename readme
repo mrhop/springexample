@@ -3,3 +3,7 @@ https://www.owasp.org/index.php/Category:Vulnerability [top ten list of web appl
 
 http://docs.spring.io/spring-security/site/docs/4.0.3.RELEASE/reference/htmlsingle/ [SECURITY]
 Integrate with the following Servlet API methods
+
+git rm  --cached settings.gradle
+git commit -m "remove no need"
+git push
