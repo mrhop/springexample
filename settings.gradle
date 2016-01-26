@@ -1,3 +1,0 @@
-rootProject.name = 'springexample'
-
-include 'oauth2/sparklr','oauth2/tonr'
