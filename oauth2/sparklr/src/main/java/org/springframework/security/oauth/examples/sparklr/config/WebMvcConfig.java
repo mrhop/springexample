@@ -72,7 +72,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean
 	public AccessConfirmationController accessConfirmationController(ClientDetailsService clientDetailsService,
-			ApprovalStore approvalStore) {
+																	 ApprovalStore approvalStore) {
 		AccessConfirmationController accessConfirmationController = new AccessConfirmationController();
 		accessConfirmationController.setClientDetailsService(clientDetailsService);
 		accessConfirmationController.setApprovalStore(approvalStore);
@@ -97,8 +97,8 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	// N.B. the @Qualifier here should not be necessary (gh-298) but lots of users report needing it.
 	@Bean
 	public AdminController adminController(TokenStore tokenStore,
-			@Qualifier("consumerTokenServices") ConsumerTokenServices tokenServices,
-			SparklrUserApprovalHandler userApprovalHandler) {
+										   @Qualifier("consumerTokenServices") ConsumerTokenServices tokenServices,
+										   SparklrUserApprovalHandler userApprovalHandler) {
 		AdminController adminController = new AdminController();
 		adminController.setTokenStore(tokenStore);
 		adminController.setTokenServices(tokenServices);

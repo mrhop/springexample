@@ -39,6 +39,8 @@ import org.springframework.security.oauth2.provider.approval.UserApprovalHandler
 import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 /**
  * @author Rob Winch
@@ -48,14 +50,14 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 public class OAuth2ServerConfig {
 
 	private static final String SPARKLR_RESOURCE_ID = "sparklr";
-
 	@Bean
 	public TokenStore tokenStore() {
 		return new InMemoryTokenStore();
 	}
 
-	@Configuration
+	//@Configuration
 	@EnableResourceServer
+	@Configuration
 	protected static class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
 		@Override
@@ -66,18 +68,20 @@ public class OAuth2ServerConfig {
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			// @formatter:off
-			http
+			http.requestMatcher(new OrRequestMatcher(
+					new AntPathRequestMatcher("/photos/**"),
+					new AntPathRequestMatcher("/oauth/users/**"),
+					new AntPathRequestMatcher("/me"),
+					new AntPathRequestMatcher("/oauth/clients/**")))
 				// Since we want the protected resources to be accessible in the UI as well we need 
 				// session creation to be allowed (it's disabled by default in 2.0.6)
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-			.and()
-				.requestMatchers().antMatchers("/photos/**", "/oauth/users/**", "/oauth/clients/**","/me")
 			.and()
 				.authorizeRequests()
 					.antMatchers("/me").access("#oauth2.hasScope('read')")					
 					.antMatchers("/photos").access("#oauth2.hasScope('read') or (!#oauth2.isOAuth() and hasRole('ROLE_USER'))")                                        
 					.antMatchers("/photos/trusted/**").access("#oauth2.hasScope('trust')")
-					.antMatchers("/photos/user/**").access("#oauth2.hasScope('trust')")					
+					.antMatchers("/photos/user/**").access("#oauth2.hasScope('trust')")
 					.antMatchers("/photos/**").access("#oauth2.hasScope('read') or (!#oauth2.isOAuth() and hasRole('ROLE_USER'))")
 					.regexMatchers(HttpMethod.DELETE, "/oauth/users/([^/].*?)/tokens/.*")
 						.access("#oauth2.clientHasRole('ROLE_CLIENT') and (hasRole('ROLE_USER') or #oauth2.isClient()) and #oauth2.hasScope('write')")

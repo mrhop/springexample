@@ -1,4 +1,4 @@
-package com.hopever.springexample.oauth2.tonr;
+package org.springframework.security.oauth.examples;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
      public static void main(String[] args) {
-         org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer a;
         SpringApplication.run(Application.class, args);
     }
 }
