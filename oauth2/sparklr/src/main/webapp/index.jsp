@@ -13,7 +13,7 @@
 <script type="text/javascript"
 	src="webjars/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-<authz:authorize ifAllGranted="ROLE_USER">
+<authz:authorize access="hasRole('ROLE_USER')">
 	<script type='text/javascript'>
 		function pictureDisplay(json) {
 			for (var i = 0; i < json.photos.length; i++) {
@@ -37,7 +37,7 @@
 			Unfortunately, we don't have any services for printing your photos.
 			For that, you'll have to go to Tonr.</p>
 
-		<authz:authorize ifAllGranted="ROLE_USER">
+		<authz:authorize access="hasRole('ROLE_USER')">
 			<div class="form-horizontal">
 				<form action="<c:url value="/logout"/>" role="form" method="post">
 					<input type="hidden" name="${_csrf.parameterName}"
