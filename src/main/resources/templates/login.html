@@ -20,8 +20,7 @@ My Choice login
         <label for="password">Password</label>
         <input type="password" id="password" name="password"/>
     </p>
-    <input type="hidden" th:name="${_csrf.parameterName}"
-           th:value="${_csrf.token}"/>
+
     <button type="submit" th:text="#{user.login}">save</button>
 </form>
 </body>

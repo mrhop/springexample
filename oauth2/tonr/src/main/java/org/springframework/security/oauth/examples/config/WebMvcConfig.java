@@ -30,7 +30,6 @@ import org.springframework.web.client.RestOperations;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
@@ -42,7 +41,6 @@ import java.util.Collections;
 import java.util.List;
 
 @Configuration
-@EnableWebMvc
 @PropertySource("classpath:sparklr.properties")
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -164,7 +162,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 			details.setClientSecret("secret");
 			details.setAccessTokenUri(accessTokenUri);
 			details.setUserAuthorizationUri(userAuthorizationUri);
-			details.setScope(Arrays.asList("read", "write"));
+			details.setScope(Arrays.asList("read"));
 			return details;
 		}
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
@@ -61,8 +62,14 @@ public class SparklrController {
 	@RequestMapping("/trusted/message")
 	public String trusted(Model model) throws Exception {
 		model.addAttribute("message", this.sparklrService.getTrustedMessage());
-		return "home";
+		return "sparklr";
 	}
+
+	@RequestMapping("/client/test")
+	public @ResponseBody String test() throws Exception {
+		return this.sparklrService.getTestAdmin();
+	}
+
 
 	public void setSparklrService(SparklrService sparklrService) {
 		this.sparklrService = sparklrService;

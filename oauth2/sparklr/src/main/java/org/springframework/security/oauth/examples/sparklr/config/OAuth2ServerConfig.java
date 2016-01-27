@@ -36,6 +36,7 @@ import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.approval.ApprovalStore;
 import org.springframework.security.oauth2.provider.approval.TokenApprovalStore;
 import org.springframework.security.oauth2.provider.approval.UserApprovalHandler;
+import org.springframework.security.oauth2.provider.expression.OAuth2SecurityExpressionMethods;
 import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
@@ -62,6 +63,7 @@ public class OAuth2ServerConfig {
 
 		@Override
 		public void configure(ResourceServerSecurityConfigurer resources) {
+			OAuth2SecurityExpressionMethods a;
 			resources.resourceId(SPARKLR_RESOURCE_ID).stateless(false);
 		}
 
@@ -87,8 +89,8 @@ public class OAuth2ServerConfig {
 						.access("#oauth2.clientHasRole('ROLE_CLIENT') and (hasRole('ROLE_USER') or #oauth2.isClient()) and #oauth2.hasScope('write')")
 					.regexMatchers(HttpMethod.GET, "/oauth/clients/([^/].*?)/users/.*")
 						.access("#oauth2.clientHasRole('ROLE_CLIENT') and (hasRole('ROLE_USER') or #oauth2.isClient()) and #oauth2.hasScope('read')")
-					.regexMatchers(HttpMethod.GET, "/oauth/clients/.*")
-						.access("#oauth2.clientHasRole('ROLE_CLIENT') and #oauth2.isClient() and #oauth2.hasScope('read')");
+					.regexMatchers(HttpMethod.GET, "/oauth/clients/.*").access("#oauth2.hasScope('read') and #oauth2.clientHasRole('ROLE_CLIENT') ");
+//						.access("#oauth2.clientHasRole('ROLE_CLIENT') and #oauth2.isClient() and #oauth2.hasScope('read')");
 			// @formatter:on
 		}
 
@@ -108,7 +110,7 @@ public class OAuth2ServerConfig {
 		@Qualifier("authenticationManagerBean")
 		private AuthenticationManager authenticationManager;
 
-		@Value("${tonr.redirect:http://localhost:8080/tonr2/sparklr/redirect}")
+		@Value("${tonr.redirect:http://127.0.0.1:9000/sparklr/redirect}")
 		private String tonrRedirectUri;
 
 		@Override

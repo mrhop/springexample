@@ -28,4 +28,6 @@ public interface SparklrService {
 	 */
 	String getTrustedMessage();
 
+	String getTestAdmin() throws SparklrException;
+
 }

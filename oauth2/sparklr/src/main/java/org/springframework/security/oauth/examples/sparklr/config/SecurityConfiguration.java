@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -43,9 +42,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .accessDeniedPage("/login.jsp?authorization_error=true")
                 .and()
                 // TODO: put CSRF protection back into this endpoint
-                .csrf()
-                .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/oauth/authorize"))
-                .disable()
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login.jsp")
@@ -53,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginProcessingUrl("/login").defaultSuccessUrl("/index.jsp")
                 .failureUrl("/login.jsp?authentication_error=true")
-                .loginPage("/login.jsp").permitAll();
+                .loginPage("/login.jsp").permitAll().and().requiresChannel().antMatchers("/**").requiresInsecure();
         // @formatter:on
     }
 }

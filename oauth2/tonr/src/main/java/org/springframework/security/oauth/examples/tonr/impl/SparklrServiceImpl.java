@@ -86,5 +86,11 @@ public class SparklrServiceImpl implements SparklrService {
 	public void setTrustedClientRestTemplate(RestOperations trustedClientRestTemplate) {
 		this.trustedClientRestTemplate = trustedClientRestTemplate;
 	}
+	//test admin
+	public String getTestAdmin() throws SparklrException {
+		Object abc =  sparklrRestTemplate.getForObject(
+				URI.create("http://localhost:8080/oauth/clients/tonr-with-redirect/tokens"), Object.class);
+		return abc.toString();
+	}
 
 }
