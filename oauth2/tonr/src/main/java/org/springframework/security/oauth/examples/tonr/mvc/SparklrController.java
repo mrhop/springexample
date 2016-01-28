@@ -19,6 +19,7 @@ import javax.imageio.stream.MemoryCacheImageInputStream;
 import javax.servlet.UnavailableException;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import java.security.Principal;
 import java.util.Iterator;
 
 /**
@@ -31,7 +32,7 @@ public class SparklrController {
 	private SparklrService sparklrService;
 
 	@RequestMapping("/sparklr/photos")
-	public String photos(Model model) throws Exception {
+	public String photos(Model model, Principal p) throws Exception {
 		model.addAttribute("photoIds", sparklrService.getSparklrPhotoIds());
 		return "sparklr";
 	}
