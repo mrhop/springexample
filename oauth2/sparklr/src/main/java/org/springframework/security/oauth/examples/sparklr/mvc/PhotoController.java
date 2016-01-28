@@ -103,6 +103,13 @@ public class PhotoController {
 		return "Hello, Trusted User" + (principal != null ? " " + principal.getName() : "");
 	}
 
+	@RequestMapping("/photos/user/single")
+	@ResponseBody
+	public Principal getTrustedUserSingel(Principal principal) {
+		return principal;
+	}
+
+
 	public PhotoService getPhotoService() {
 		return photoService;
 	}
