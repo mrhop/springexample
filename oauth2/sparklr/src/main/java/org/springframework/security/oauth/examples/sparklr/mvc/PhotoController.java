@@ -36,7 +36,7 @@ public class PhotoController {
 		}
 		else {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			byte[] buffer = new byte[1024];
+			byte[] buffer = new byte[102400];
 			int len = photo.read(buffer);
 			while (len >= 0) {
 				out.write(buffer, 0, len);
