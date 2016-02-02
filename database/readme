@@ -10,4 +10,17 @@ http://www.jooq.org/xsd/jooq-codegen-3.7.0.xsd
 http://www.jooq.org/doc/3.7/manual/code-generation/
 
 
-Redis:
+GemFire: need to think about the,big data ,in-memery db grid,cluster and distribute?
+
+
+zookeeper: need to think ?
+https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
+
+
+now solr search(solr cloud) http://tech.uc.cn/?p=2387
+https://www.ibm.com/developerworks/cn/opensource/os-cn-zookeeper/
+
+
+
+
+js: jquery tagcanvas tech
