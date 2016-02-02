@@ -46,6 +46,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-redis'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    compile 'org.springframework.boot:spring-boot-starter-data-solr'
     compile 'org.jooq:jooq:3.7.2'
     runtime 'com.h2database:h2'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
