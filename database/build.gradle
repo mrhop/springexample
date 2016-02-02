@@ -64,7 +64,7 @@ def xml = new groovy.xml.MarkupBuilder(writer)
         .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.7.0.xsd') {
     jdbc() {
         driver('org.h2.Driver')
-        url('jdbc:h2:~/test1')
+        url('jdbc:h2:file:./data/test_h2;DB_CLOSE_ON_EXIT=FALSE')
         user('sa')
         password('')
         schema('TEST_SCHEMA')

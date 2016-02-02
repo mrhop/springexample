@@ -20,7 +20,7 @@ public class JooqExample implements CommandLineRunner {
     }
 
     public void run(String... args) {
-        this.create.insertInto(Test.TEST,Test.TEST.NAME).values("test测试");
+        this.create.insertInto(Test.TEST,Test.TEST.ID,Test.TEST.NAME).values(1,"test测试").execute();
         Object o = this.create.selectFrom(Test.TEST).fetch();
         System.out.println("acb");
     }
