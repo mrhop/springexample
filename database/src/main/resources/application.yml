@@ -3,6 +3,12 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:./data/test_h2;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:file:./data/test_h2
+  data:
+    mongodb:
+      database: picture
+      password: picture
+      username: picture
 jpa:
     generate-ddl: true
+
