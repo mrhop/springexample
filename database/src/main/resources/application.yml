@@ -6,9 +6,12 @@ spring:
     url: jdbc:h2:file:./data/test_h2
   data:
     mongodb:
-      database: picture
-      password: picture
-      username: picture
+      #database: picture
+      #password: picture
+      #username: picture
+      database: test
+      password: admin
+      username: admin
 jpa:
     generate-ddl: true
 

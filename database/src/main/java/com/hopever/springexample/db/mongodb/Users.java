@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Created by Donghui Huo on 2016/2/2.
  */
-@Document
+@Document(collection = "Users")
 public class Users {
 
     private  String username;
