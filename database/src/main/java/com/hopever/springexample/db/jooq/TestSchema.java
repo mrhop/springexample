@@ -4,15 +4,8 @@
 package com.hopever.springexample.db.jooq;
 
 
-import com.hopever.springexample.db.jooq.tables.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.annotation.Generated;
 
-import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
 
@@ -29,7 +22,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TestSchema extends SchemaImpl {
 
-	private static final long serialVersionUID = 1549550317;
+	private static final long serialVersionUID = -164006207;
 
 	/**
 	 * The reference instance of <code>TEST_SCHEMA</code>
@@ -41,17 +34,5 @@ public class TestSchema extends SchemaImpl {
 	 */
 	private TestSchema() {
 		super("TEST_SCHEMA");
-	}
-
-	@Override
-	public final List<Table<?>> getTables() {
-		List result = new ArrayList();
-		result.addAll(getTables0());
-		return result;
-	}
-
-	private final List<Table<?>> getTables0() {
-		return Arrays.<Table<?>>asList(
-			Test.TEST);
 	}
 }
