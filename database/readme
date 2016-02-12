@@ -25,7 +25,11 @@ https://wiki.apache.org/solr/FAQ
 /opt/solr/bin
 
 
-solr simple done
-next ~~
 
-js: jquery tagcanvas tech
+Elasticsearch
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04
+注意2.×版本和1.×版本的不兼容性
+http://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/
+注意默认的id的选取_id & id
+
+js: jquery tagcanvas techl

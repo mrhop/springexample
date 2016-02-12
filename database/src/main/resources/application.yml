@@ -12,6 +12,9 @@ spring:
       database: test
       password: admin
       username: admin
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost:9300
 jpa:
     generate-ddl: true
 
