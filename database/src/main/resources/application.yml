@@ -15,6 +15,9 @@ spring:
     elasticsearch:
       cluster-name: elasticsearch
       cluster-nodes: localhost:9300
+  cache:
+    cache-names: default
 jpa:
     generate-ddl: true
+
 
