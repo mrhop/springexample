@@ -27,7 +27,7 @@ public class ElasticSearchBean implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //template.getMapping("tutorial","helloworld").size();
-        System.out.println("ElasticSearch init:" + template.getMapping("tutorial", "helloworld").size());
-        System.out.println("ElasticSearch init:"+helloRepository.findOne("1").getMessage());
+        //System.out.println("ElasticSearch init:" + template.getMapping("tutorial", "helloworld").size());
+        //System.out.println("ElasticSearch init:"+helloRepository.findOne("1").getMessage());
     }
 }

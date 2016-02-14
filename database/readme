@@ -32,4 +32,12 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-el
 http://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/
 注意默认的id的选取_id & id
 
+gemfire & cassandra
+http://vschart.com/compare/gemfire/vs/apache-cassandra
+
+32. Caching now
+simpleCacheManager
+jCache
+https://docs.oracle.com/middleware/1213/coherence/tutorial/jcache.htm#COHTU1011
+
 js: jquery tagcanvas techl
