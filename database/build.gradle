@@ -57,9 +57,14 @@ dependencies {
     //cache
     compile 'org.springframework.boot:spring-boot-starter-cache'
     compile 'javax.cache:cache-api'
-    compile 'net.sf.ehcache:ehcache'
+    //compile 'net.sf.ehcache:ehcache'
     //ehcache jcache
-    compile 'org.ehcache:jcache'
+    //compile 'org.ehcache:jcache:1.0.1'
+    //compile "com.hazelcast:hazelcast"
+    //compile "org.infinispan:infinispan-core"
+    //compile "org.infinispan:infinispan-jcache"
+    //compile "org.infinispan:infinispan-spring4"
+    //compile "com.google.guava:guava"
 }
 compileJava.dependsOn(processResources)
 

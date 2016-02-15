@@ -39,8 +39,14 @@ http://vschart.com/compare/gemfire/vs/apache-cassandra
 simpleCacheManager
 jCache
 https://docs.oracle.com/middleware/1213/coherence/tutorial/jcache.htm#COHTU1011
+ehcache
+jcache with ehcache org.ehcache:jcache:1.0.1 and org.ehcache.jcache.JCacheCachingProvider
+Hazelcast
+http://hazelcast.org/documentation/ the default config is enough for most users.
+provider: com.hazelcast.cache.HazelcastCachingProvider even no need
+Infinispan
+
+redis: just cache with spring-boot-starter-redis is enough
 
 
-
-
-js: jquery tagcanvas techl
+js: jquery tagcanvas tech

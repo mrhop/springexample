@@ -16,7 +16,13 @@ spring:
       cluster-name: elasticsearch
       cluster-nodes: localhost:9300
   cache:
-    cache-names: default
+    jcache:
+      #provider: org.ehcache.jcache.JCacheCachingProvider
+      #provider: com.hazelcast.cache.HazelcastCachingProvider
+      #provider: org.infinispan.jcache.embedded.JCachingProvider
+    cache-names: need
+    #infinispan:
+      #config: infinispan.xml
 jpa:
     generate-ddl: true
 
