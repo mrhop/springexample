@@ -65,6 +65,11 @@ dependencies {
     //compile "org.infinispan:infinispan-jcache"
     //compile "org.infinispan:infinispan-spring4"
     //compile "com.google.guava:guava"
+    //jms
+    compile 'org.springframework:spring-jms'
+    compile 'org.apache.activemq:activemq-broker'
+    //compile 'org.springframework.boot:spring-boot-starter-amqp'
+
 }
 compileJava.dependsOn(processResources)
 

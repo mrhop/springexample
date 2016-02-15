@@ -35,7 +35,7 @@ http://docs.spring.io/spring-data/elasticsearch/docs/current/reference/html/
 gemfire & cassandra
 http://vschart.com/compare/gemfire/vs/apache-cassandra
 
-32. Caching now ||AbstractCacheResolver查看cachemanager类型||
+32. Caching ||AbstractCacheResolver查看cachemanager类型||----------------
 simpleCacheManager
 jCache
 https://docs.oracle.com/middleware/1213/coherence/tutorial/jcache.htm#COHTU1011
@@ -47,6 +47,11 @@ provider: com.hazelcast.cache.HazelcastCachingProvider even no need
 Infinispan
 
 redis: just cache with spring-boot-starter-redis is enough
+
+Messaging ----------
+JMS
+ActiveMQ support now
+
 
 
 js: jquery tagcanvas tech
