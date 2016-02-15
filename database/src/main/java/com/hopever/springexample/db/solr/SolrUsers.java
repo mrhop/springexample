@@ -1,20 +1,16 @@
 package com.hopever.springexample.db.solr;
 
-import org.apache.solr.client.solrj.beans.Field;
-
-import javax.persistence.Id;
-
 /**
  * Created by Donghui Huo on 2016/2/2.
  */
 //@SolrDocument( solrCoreName ="gettingstarted" )
 public class SolrUsers {
 
-    @Id
-    @Field(value = "id")
+    //@Id
+    //@Field(value = "id")
     private  Integer id;
 
-    @Field(value = "name")
+    //@Field(value = "name")
     private  String name;
 
 
