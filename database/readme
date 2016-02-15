@@ -52,6 +52,7 @@ Messaging ----------
 JMS
 http://docs.spring.io/spring/docs/4.2.4.RELEASE/spring-framework-reference/htmlsingle/#jms [jms code tpl]
 ActiveMQ support now
+29.2.3 Destination Management  spring-framework need to consider the jms framework
 
 
 
