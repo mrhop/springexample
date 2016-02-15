@@ -14,7 +14,7 @@ public class TestService {
     @Autowired
     UsersRepository repository;
 
-    @Cacheable("default")
+    @Cacheable("need")
     public Iterable<Users> getUsersAll(){
         return repository.findAll();
     }

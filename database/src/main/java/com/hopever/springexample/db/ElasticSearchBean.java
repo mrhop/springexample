@@ -1,10 +1,7 @@
 package com.hopever.springexample.db;
 
-import com.hopever.springexample.db.elasticsearch.HelloRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,15 +11,15 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class ElasticSearchBean implements CommandLineRunner {
 
-    private ElasticsearchTemplate template;
-    @Autowired
-    HelloRepository helloRepository;
+    //private ElasticsearchTemplate template;
+//    @Autowired
+//    HelloRepository helloRepository;
 
 
-    @Autowired
-    public ElasticSearchBean(ElasticsearchTemplate template) {
-        this.template = template;
-    }
+//    @Autowired
+//    public ElasticSearchBean(ElasticsearchTemplate template) {
+//        this.template = template;
+//    }
 
     @Override
     public void run(String... args) throws Exception {

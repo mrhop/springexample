@@ -1,14 +1,13 @@
 package com.hopever.springexample.db.solr;
 
 import org.apache.solr.client.solrj.beans.Field;
-import org.springframework.data.solr.core.mapping.SolrDocument;
 
 import javax.persistence.Id;
 
 /**
  * Created by Donghui Huo on 2016/2/2.
  */
-@SolrDocument( solrCoreName ="gettingstarted" )
+//@SolrDocument( solrCoreName ="gettingstarted" )
 public class SolrUsers {
 
     @Id
