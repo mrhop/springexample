@@ -50,6 +50,7 @@ redis: just cache with spring-boot-starter-redis is enough
 
 Messaging ----------
 JMS
+http://docs.spring.io/spring/docs/4.2.4.RELEASE/spring-framework-reference/htmlsingle/#jms [jms code tpl]
 ActiveMQ support now
 
 
