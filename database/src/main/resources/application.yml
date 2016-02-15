@@ -6,12 +6,12 @@ spring:
     url: jdbc:h2:file:./data/test_h2
   data:
     mongodb:
-      #database: picture
-      #password: picture
-      #username: picture
-      database: test
-      password: admin
-      username: admin
+      database: picture
+      password: picture
+      username: picture
+      #database: test
+      #password: admin
+      #username: admin
     elasticsearch:
       cluster-name: elasticsearch
       cluster-nodes: localhost:9300

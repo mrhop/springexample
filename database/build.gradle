@@ -58,6 +58,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-cache'
     compile 'javax.cache:cache-api'
     compile 'net.sf.ehcache:ehcache'
+    //ehcache jcache
+    compile 'org.ehcache:jcache'
 }
 compileJava.dependsOn(processResources)
 
