@@ -23,7 +23,13 @@ spring:
     cache-names: need
     #infinispan:
       #config: infinispan.xml
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+    pooled: true
 jpa:
     generate-ddl: true
+
 
 

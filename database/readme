@@ -53,7 +53,8 @@ JMS
 http://docs.spring.io/spring/docs/4.2.4.RELEASE/spring-framework-reference/htmlsingle/#jms [jms code tpl]
 ActiveMQ support now
 29.2.3 Destination Management  spring-framework need to consider the jms framework
-
-
+http://www.quepublishing.com/articles/article.aspx?p=26270&seqNum=6 [message headers]
+simple example:https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-activemq
+ActiveMQConnectionFactoryConfiguration the connection
 
 js: jquery tagcanvas tech

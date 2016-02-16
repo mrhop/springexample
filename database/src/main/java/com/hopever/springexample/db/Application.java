@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jms.annotation.EnableJms;
 
 /**
  * Created by Donghui Huo on 2015/12/24.
@@ -11,8 +12,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories
 @EnableCaching
+@EnableJms
+//@EnableConfigurationProperties(ActiveMQProperties.class)
 public class Application {
-
+//    @Autowired
+//    private ActiveMQProperties properties;
     //basic cache of spring in memory cache
 //    @Bean(name = "default")
 //    public ConcurrentMapCacheFactoryBean concurrentMapCacheFactoryBean() {
@@ -26,6 +30,15 @@ public class Application {
 //        jc.setCacheManager(cacheManager);
 //        return jc;
 //    }
+
+
+//   @Bean
+//   ConnectionFactory connectionFactory() {
+//       JmsTemplateAutoConfiguration a;
+//       return new CachingConnectionFactory(
+//               new ActiveMQConnectionFactory(properties.getUser(),properties.getPassword(),properties.getBrokerUrl()));
+//   }
+
 
 
 
