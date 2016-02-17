@@ -51,11 +51,15 @@ redis: just cache with spring-boot-starter-redis is enough
 Messaging ----------
 JMS
 http://docs.spring.io/spring/docs/4.2.4.RELEASE/spring-framework-reference/htmlsingle/#jms [jms code tpl]
-ActiveMQ support now
+ActiveMQ support
 29.2.3 Destination Management  spring-framework need to consider the jms framework
 http://www.quepublishing.com/articles/article.aspx?p=26270&seqNum=6 [message headers]
 simple example:https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-activemq
 ActiveMQConnectionFactoryConfiguration configure the connection
 ActiveMQProperties
-
+Artemis support
+not create remote client auto in spring boot,so need to create by ourselves by http://localhost:8161/jolokia restful api or jmx console
+Rabbitmq support
+need the erlang/otp download from here https://www.erlang-solutions.com/resources/download.html
+http://blog.csdn.net/spyiu/article/details/24697221 [rabbitmq web console]
 js: jquery tagcanvas tech

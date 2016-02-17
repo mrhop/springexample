@@ -66,10 +66,16 @@ dependencies {
     //compile "org.infinispan:infinispan-spring4"
     //compile "com.google.guava:guava"
     //jms
-    compile 'org.springframework:spring-jms'
-    compile 'org.apache.activemq:activemq-broker'
-    compile 'org.apache.activemq:activemq-pool'
-    //compile 'org.springframework.boot:spring-boot-starter-amqp'
+    //active-mq
+    //compile 'org.springframework:spring-jms'
+    //compile 'org.apache.activemq:activemq-broker'
+    //compile 'org.apache.activemq:activemq-pool'
+    //Artemis
+    //compile 'org.springframework.boot:spring-boot-starter-artemis'
+    //AMQP
+    compile 'org.springframework.boot:spring-boot-starter-amqp'
+    //AMQP rabbit
+    compile 'org.springframework.amqp:spring-rabbit'
 
 }
 compileJava.dependsOn(processResources)

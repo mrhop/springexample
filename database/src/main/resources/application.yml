@@ -28,6 +28,10 @@ spring:
     user: admin
     password: admin
     pooled: true
+  artemis:
+    mode: native
+    host: localhost
+    port: 61616
 jpa:
     generate-ddl: true
 
