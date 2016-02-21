@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jms.annotation.EnableJms;
 
 /**
  * Created by Donghui Huo on 2015/12/24.
@@ -12,7 +11,7 @@ import org.springframework.jms.annotation.EnableJms;
 @SpringBootApplication
 @EnableJpaRepositories
 @EnableCaching
-@EnableJms
+//@EnableJms
 //@EnableConfigurationProperties(ActiveMQProperties.class)
 public class Application {
 //    @Autowired

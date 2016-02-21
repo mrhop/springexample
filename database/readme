@@ -62,4 +62,8 @@ not create remote client auto in spring boot,so need to create by ourselves by h
 Rabbitmq support
 need the erlang/otp download from here https://www.erlang-solutions.com/resources/download.html
 http://blog.csdn.net/spyiu/article/details/24697221 [rabbitmq web console]
+rabbitmq management http://localhost:15672/ guest/guest
+
+34. Sending email now
+
 js: jquery tagcanvas tech
