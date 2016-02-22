@@ -73,10 +73,14 @@ dependencies {
     //Artemis
     //compile 'org.springframework.boot:spring-boot-starter-artemis'
     //AMQP
-    compile 'org.springframework.boot:spring-boot-starter-amqp'
+    //compile 'org.springframework.boot:spring-boot-starter-amqp'
     //AMQP rabbit
-    compile 'org.springframework.amqp:spring-rabbit'
-
+    //compile 'org.springframework.amqp:spring-rabbit'
+    //Email
+    //compile 'org.springframework.boot:spring-boot-starter-mail'
+    //JTA
+    //JTA with Atomikos
+    compile 'org.springframework.boot:spring-boot-starter-jta-atomikos'
 }
 compileJava.dependsOn(processResources)
 

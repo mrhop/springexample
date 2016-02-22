@@ -37,6 +37,15 @@ spring:
     port: 5672
     username: guest
     password: guest
+  mail:
+    host: smtp.163.com
+    username: 15309861499@163.com
+    password: whatorwho
+   # port: 465
+    test-connection: true
+
+
+
 jpa:
     generate-ddl: true
 
