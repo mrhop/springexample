@@ -18,6 +18,7 @@ public class TestMongoTransactionManager extends PseudoTransactionManager {
     protected void doBegin(Object transaction, TransactionDefinition definition) throws TransactionException {
         //noop
         System.out.println("begin");
+        //definition.getName()
     }
 
     @Override
