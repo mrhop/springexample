@@ -17,7 +17,7 @@ public class TestService {
     UsersRepository repository;
     //@Cacheable("need")
     @CacheResult(cacheName="need")
-    @Transactional()
+    @Transactional(transactionManager = "pseudoTransactionManager")
     public Iterable<Users> getUsersAll(){
         Users u = new Users();
         u.setNickname("123");
