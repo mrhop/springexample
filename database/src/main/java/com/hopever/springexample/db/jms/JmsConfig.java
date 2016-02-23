@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class JmsConfig {
 //    @Autowired
 //    private JmsProperties properties;
-
+//
 //    @Autowired
 //    private ConnectionFactory connectionFactory;
 //
@@ -25,7 +25,7 @@ public class JmsConfig {
 //        DefaultJmsListenerContainerFactory djcf = new DefaultJmsListenerContainerFactory();
 //        djcf.setConnectionFactory(connectionFactory);
 //        djcf.setPubSubDomain(true);
-//        djcf.setSessionTransacted(true);
+//        //djcf.setSessionTransacted(true);
 //        djcf.setAutoStartup(true);
 //        return djcf;
 //    }
@@ -37,6 +37,7 @@ public class JmsConfig {
 //        if (this.destinationResolver != null) {
 //            jmsTemplate.setDestinationResolver(this.destinationResolver);
 //        }
+//        jmsTemplate.setSessionTransacted(true);
 //        return jmsTemplate;
 //    }
 //
@@ -52,6 +53,7 @@ public class JmsConfig {
 //        if (this.destinationResolver != null) {
 //            jmsTemplate.setDestinationResolver(this.destinationResolver);
 //        }
+//       jmsTemplate.setSessionTransacted(true);
 //        return jmsTemplate;
 //    }
 //

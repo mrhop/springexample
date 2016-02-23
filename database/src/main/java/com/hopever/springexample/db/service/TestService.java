@@ -4,6 +4,7 @@ import com.hopever.springexample.db.mongodb.Users;
 import com.hopever.springexample.db.mongodb.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.cache.annotation.CacheResult;
 
@@ -16,7 +17,12 @@ public class TestService {
     UsersRepository repository;
     //@Cacheable("need")
     @CacheResult(cacheName="need")
+    @Transactional()
     public Iterable<Users> getUsersAll(){
+        Users u = new Users();
+        u.setNickname("123");
+        u.setUsername("bbb");
+        repository.save(u);
         return repository.findAll();
     }
 }

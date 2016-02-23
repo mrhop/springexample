@@ -60,6 +60,7 @@ ActiveMQProperties
 Artemis support
 not create remote client auto in spring boot,so need to create by ourselves by http://localhost:8161/jolokia restful api or jmx console
 Rabbitmq support
+RabbitAutoConfiguration
 need the erlang/otp download from here https://www.erlang-solutions.com/resources/download.html
 http://blog.csdn.net/spyiu/article/details/24697221 [rabbitmq web console]
 rabbitmq management http://localhost:15672/ guest/guest
@@ -67,3 +68,7 @@ rabbitmq management http://localhost:15672/ guest/guest
 34. Sending email now
 
 js: jquery tagcanvas tech
+
+now rabbitmq transaction then jdbc transaction also mangodb and redis
+
+then xa transaction

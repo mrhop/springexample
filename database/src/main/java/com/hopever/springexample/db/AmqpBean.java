@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 public class AmqpBean implements CommandLineRunner {
 //    private final AmqpAdmin amqpAdmin;
 //    private final AmqpTemplate amqpTemplate;
+//    @Autowired
+//    private AmqpSender amqpSender;
 //
-//   // @Autowired
+//
+//    @Autowired
 //    public AmqpBean(AmqpAdmin amqpAdmin, AmqpTemplate amqpTemplate) {
 //        this.amqpAdmin = amqpAdmin;
 //        this.amqpTemplate = amqpTemplate;
@@ -20,6 +23,6 @@ public class AmqpBean implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //amqpTemplate.convertAndSend("test","abcd");
+        //amqpSender.processMessage("abcd");
     }
 }

@@ -17,6 +17,6 @@ public class JmsBean implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //jmsQueueSender.sendMsg();
+//        jmsQueueSender.sendMsg();
     }
 }
