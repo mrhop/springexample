@@ -11,6 +11,6 @@ import org.springframework.integration.transaction.PseudoTransactionManager;
 public class MongoConfig {
     @Bean
     public PseudoTransactionManager pseudoTransactionManager(){
-        return new PseudoTransactionManager();
+        return new TestMongoTransactionManager();
     }
 }
