@@ -18,9 +18,6 @@ public class JooqExample implements CommandLineRunner {
         this.create = dslContext;
     }
 
-    public DSLContext getCreate(){
-        return  create;
-    }
     public void run(String... args) {
 //        this.create.insertInto(Test.TEST,Test.TEST.ID,Test.TEST.NAME).values(1,"test测试").execute();
 //        Object o = this.create.selectFrom(Test.TEST).fetch();
