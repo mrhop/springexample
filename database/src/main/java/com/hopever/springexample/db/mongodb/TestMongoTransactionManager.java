@@ -17,20 +17,20 @@ public class TestMongoTransactionManager extends PseudoTransactionManager {
     @Override
     protected void doBegin(Object transaction, TransactionDefinition definition) throws TransactionException {
         //noop
-        System.out.println("begin");
+        //System.out.println("begin");
         //definition.getName()
     }
 
     @Override
     protected void doCommit(DefaultTransactionStatus status) throws TransactionException {
         //noop
-        System.out.println("after commit");
+        //System.out.println("after commit");
     }
 
     @Override
     protected void doRollback(DefaultTransactionStatus status) throws TransactionException {
         //noop
-        System.out.println("after exception");
+       // System.out.println("after exception");
     }
 
 }

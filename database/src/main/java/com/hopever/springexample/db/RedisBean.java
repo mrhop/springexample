@@ -1,40 +1,35 @@
-//package com.hopever.springexample.db;
+package com.hopever.springexample.db;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+/**
+ * Created by Donghui Huo on 2016/2/2.
+ */
+@Component
+@Order(2)
+public class RedisBean implements CommandLineRunner {
+
+//    @Autowired
+//    private RedisService redisService;
 //
-//import com.hopever.springexample.db.jooq.tables.Test;
-//import org.jooq.Result;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.CommandLineRunner;
-//import org.springframework.core.annotation.Order;
-//import org.springframework.data.redis.core.BoundHashOperations;
-//import org.springframework.data.redis.core.StringRedisTemplate;
-//import org.springframework.stereotype.Component;
-//
-//import java.util.HashMap;
-//import java.util.Map;
-//
-///**
-// * Created by Donghui Huo on 2016/2/2.
-// */
-//@Component
-//@Order(2)
-//public class RedisBean implements CommandLineRunner {
+//    @Autowired
 //    private StringRedisTemplate template;
-//
-//    @Autowired
-//    public RedisBean(StringRedisTemplate template) {
-//        this.template = template;
-//    }
-//
-//    @Autowired
-//    private JooqExample jooqExample;
-//
-//    @Override
-//    public void run(String... args) throws Exception {
-//        Result o = jooqExample.getCreate().selectFrom(Test.TEST).fetch();
-//        BoundHashOperations<String, String, String> ops = template.boundHashOps("PRIMARY-ID:"+o.field(0));
-//        Map<String, String> data = new HashMap<String, String>();
-//        data.put("id", String.valueOf(o.field(0)));
-//        data.put("name", String.valueOf(o.field(1)));
-//        ops.putAll(data);
-//    }
-//}
+
+    @Override
+    public void run(String... args) throws Exception {
+//        try {
+//            redisService.saveMap();
+//        }catch (Exception e){
+//            System.out.println("some transaction works");
+//        }
+//        //template.opsForValue().set("foo","bar123");
+//        System.out.println( "Redis-after transaction--"+template.opsForValue().get("foo"));
+//        System.out.println("Redis-after transaction"+template.opsForHash().hasKey("just hash Test","1"));
+//        System.out.println("Redis-after transaction"+template.opsForHash().entries("just hash Test").size());
+//        template.opsForValue().set("foo","nothing for transaction");
+//        template.opsForHash().delete("just hash Test","1");
+//        template.opsForHash().delete("just hash Test","2");
+    }
+}

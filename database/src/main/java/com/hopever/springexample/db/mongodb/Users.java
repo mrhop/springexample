@@ -1,13 +1,11 @@
 package com.hopever.springexample.db.mongodb;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.io.Serializable;
 
 /**
  * Created by Donghui Huo on 2016/2/2.
  */
-@Document(collection = "Users")
+//@Document(collection = "Users")
 public class Users implements Serializable {
 
     private  String username;

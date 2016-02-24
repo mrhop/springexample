@@ -45,7 +45,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     //compile 'org.springframework.boot:spring-boot-starter-redis'
-    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    //compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     //compile 'org.springframework.boot:spring-boot-starter-integration'
     //compile 'org.springframework.boot:spring-boot-starter-data-solr'
     //compile 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
@@ -68,20 +68,20 @@ dependencies {
     //compile "com.google.guava:guava"
     //jms
     //active-mq
-//    compile 'org.springframework:spring-jms'
-//    compile 'org.apache.activemq:activemq-broker'
-//    compile 'org.apache.activemq:activemq-pool'
+    compile 'org.springframework:spring-jms'
+    compile 'org.apache.activemq:activemq-broker'
+    compile 'org.apache.activemq:activemq-pool'
     //Artemis
     //compile 'org.springframework.boot:spring-boot-starter-artemis'
     //AMQP
     //compile 'org.springframework.boot:spring-boot-starter-amqp'
     //AMQP rabbit
-    //compile 'org.springframework.amqp:spring-rabbit'
+    compile 'org.springframework.amqp:spring-rabbit'
     //Email
     //compile 'org.springframework.boot:spring-boot-starter-mail'
     //JTA
     //JTA with Atomikos
-    //compile 'org.springframework.boot:spring-boot-starter-jta-atomikos'
+    compile 'org.springframework.boot:spring-boot-starter-jta-atomikos'
 }
 compileJava.dependsOn(processResources)
 

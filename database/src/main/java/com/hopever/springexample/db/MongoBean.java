@@ -1,10 +1,7 @@
 package com.hopever.springexample.db;
 
-import com.hopever.springexample.db.service.TestService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,20 +11,20 @@ import org.springframework.stereotype.Component;
 @Order(3)
 public class MongoBean implements CommandLineRunner {
 
-    private final MongoTemplate mongoTemplate;
-
-    @Autowired
-    TestService testService;
-
-
-    @Autowired
-    public MongoBean(MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
-    }
+//    private final MongoTemplate mongoTemplate;
+//
+//    @Autowired
+//    TestService testService;
+//
+//
+//    @Autowired
+//    public MongoBean(MongoTemplate mongoTemplate) {
+//        this.mongoTemplate = mongoTemplate;
+//    }
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(testService.getUsersAll().iterator().next().getNickname());
-        System.out.println("mongodb init");
+        //System.out.println(testService.getUsersAll().iterator().next().getNickname());
+       // System.out.println("mongodb init");
     }
 }
