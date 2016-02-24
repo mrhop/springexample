@@ -23,6 +23,7 @@ spring:
     cache-names: need
     #infinispan:
       #config: infinispan.xml
+    type: simple
   activemq:
     broker-url: tcp://127.0.0.1:61616
     user: admin
@@ -39,13 +40,10 @@ spring:
     password: guest
   mail:
     host: smtp.163.com
-    username: 15309861499@163.com
-    password: whatorwho
+    username: ******@163.com
+    password: ******
    # port: 465
     test-connection: true
-
-
-
 jpa:
     generate-ddl: true
 
