@@ -4,6 +4,8 @@ spring:
     password:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:file:./data/test_h2
+  jooq:
+    sql-dialect: H2
   data:
     mongodb:
       database: picture
@@ -39,11 +41,10 @@ spring:
     username: guest
     password: guest
   mail:
-    host: smtp.163.com
-    username: ******@163.com
-    password: ******
-   # port: 465
-    test-connection: true
+    #host: smtp.163.com
+    #username: ******@163.com
+    #password: ******
+    #test-connection: true
 jpa:
     generate-ddl: true
 

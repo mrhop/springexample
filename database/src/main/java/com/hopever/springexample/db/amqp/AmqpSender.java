@@ -1,7 +1,5 @@
 package com.hopever.springexample.db.amqp;
 
-import javax.transaction.Transactional;
-
 /**
  * Created by huodh on 2/21/16.
  */
@@ -11,7 +9,7 @@ public class AmqpSender {
 //    @Autowired
 //    private AmqpTemplate amqpTemplate;
 
-   @Transactional
+//   @Transactional
     public void processMessage(String content) {
         // ...
 //        ActiveMQProperties a;

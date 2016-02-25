@@ -1,8 +1,8 @@
 package com.hopever.springexample.db.service;
 
-import org.springframework.amqp.core.AmqpTemplate;
+import com.hopever.springexample.db.jooq.tables.pojos.Test;
+import com.hopever.springexample.db.rdbs.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -27,17 +27,38 @@ public class TestService {
 //    }
 
     //test two transactions
-    @Autowired
-    private AmqpTemplate amqpTemplate;
+//    @Autowired
+//    private AmqpTemplate amqpTemplate;
+//
+//    @Autowired
+//    private JmsMessagingTemplate jmsMessagingTemplate;
 
+    //    @Transactional
+//    public void trySend() throws Exception {
+//        jmsMessagingTemplate.convertAndSend("testPeer", "hello queue world");
+//        amqpTemplate.convertAndSend("test", "amqp value" + 1 / 0);
+//        System.out.println("nothing send");
+//    }
     @Autowired
-    private JmsMessagingTemplate jmsMessagingTemplate;
+    private TestRepository testRepository;
 
     @Transactional
-    public void trySend() throws Exception {
-        jmsMessagingTemplate.convertAndSend("testPeer", "hello queue world");
-        amqpTemplate.convertAndSend("test", "amqp value" + 1 / 0);
-        System.out.println("nothing send");
+    public void tryRdbs() throws Exception {
+        Test test = new Test();
+        //test.setId(1l);
+        test.setName("you know 3");
+        testRepository.save(test);
+        test = new Test();
+        //test.setId(2l);
+        test.setName("you know 4"+1/0);
+        testRepository.save(test);
+        System.out.println("JUST TRANSACTION");
     }
+
+    @Transactional
+    public Long tryGetRdbs(){
+        return  testRepository.count();
+    }
+
 
 }

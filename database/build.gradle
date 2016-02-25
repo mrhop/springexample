@@ -5,10 +5,11 @@ apply plugin: 'java'
 apply plugin: 'maven'
 sourceCompatibility = 1.8
 
-jar{
-    manifest{
+jar {
+    manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
-                'Implementation-Version': '1.0'}
+                'Implementation-Version': '1.0'
+    }
 }
 buildscript {
     repositories {
@@ -53,7 +54,7 @@ dependencies {
     compile 'org.jooq:jooq:3.7.2'
     runtime 'com.h2database:h2'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-    compile ('org.springframework.boot:spring-boot-configuration-processor') {ext.optional = true}
+    compile('org.springframework.boot:spring-boot-configuration-processor') { ext.optional = true }
     compile 'org.springframework.integration:spring-integration-xml'
     //cache
     compile 'org.springframework.boot:spring-boot-starter-cache'
@@ -68,64 +69,63 @@ dependencies {
     //compile "com.google.guava:guava"
     //jms
     //active-mq
-    compile 'org.springframework:spring-jms'
-    compile 'org.apache.activemq:activemq-broker'
-    compile 'org.apache.activemq:activemq-pool'
+//    compile 'org.springframework:spring-jms'
+//    compile 'org.apache.activemq:activemq-broker'
+//    compile 'org.apache.activemq:activemq-pool'
     //Artemis
     //compile 'org.springframework.boot:spring-boot-starter-artemis'
     //AMQP
     //compile 'org.springframework.boot:spring-boot-starter-amqp'
     //AMQP rabbit
-    compile 'org.springframework.amqp:spring-rabbit'
+//    compile 'org.springframework.amqp:spring-rabbit'
     //Email
     //compile 'org.springframework.boot:spring-boot-starter-mail'
     //JTA
     //JTA with Atomikos
-    compile 'org.springframework.boot:spring-boot-starter-jta-atomikos'
+    //compile 'org.springframework.boot:spring-boot-starter-jta-atomikos'
 }
 compileJava.dependsOn(processResources)
-
-
-
 
 //jooq
 
 // Use your favourite XML builder to construct the code generation configuration file
 // ----------------------------------------------------------------------------------
-def writer = new StringWriter()
-def xml = new groovy.xml.MarkupBuilder(writer)
-        .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.7.0.xsd') {
-    jdbc() {
-        driver('org.h2.Driver')
-        url('jdbc:h2:file:./data/test_h2')
-        user('sa')
-        password('')
-        schema('TEST_SCHEMA')
-    }
-    generator() {
-        database() {
-            name 'org.jooq.util.h2.H2Database'
-        }
-
-        // Watch out for this caveat when using MarkupBuilder with "reserved names"
-        // - https://github.com/jOOQ/jOOQ/issues/4797
-        // - http://stackoverflow.com/a/11389034/521799
-        // - https://groups.google.com/forum/#!topic/jooq-user/wi4S9rRxk4A
-        generate([:]) {
-            pojos true
-            daos true
-            records true
-            jpaAnnotations true
-        }
-        target() {
-            packageName('com.hopever.springexample.db.jooq')
-            directory('src/main/java')
-        }
-    }
-}
 
 // Run the code generator
 // ----------------------
-org.jooq.util.GenerationTool.generate(
-        javax.xml.bind.JAXB.unmarshal(new StringReader(writer.toString()), org.jooq.util.jaxb.Configuration.class)
-)
+task generatePojo << {
+    def writer = new StringWriter()
+    def xml = new groovy.xml.MarkupBuilder(writer)
+            .configuration('xmlns': 'http://www.jooq.org/xsd/jooq-codegen-3.7.0.xsd') {
+        jdbc() {
+            driver('org.h2.Driver')
+            url('jdbc:h2:file:./data/test_h2')
+            user('sa')
+            password('')
+            schema('TEST_SCHEMA')
+        }
+        generator() {
+            database() {
+                name 'org.jooq.util.h2.H2Database'
+            }
+
+            // Watch out for this caveat when using MarkupBuilder with "reserved names"
+            // - https://github.com/jOOQ/jOOQ/issues/4797
+            // - http://stackoverflow.com/a/11389034/521799
+            // - https://groups.google.com/forum/#!topic/jooq-user/wi4S9rRxk4A
+            generate([:]) {
+                pojos true
+                daos true
+                records true
+                jpaAnnotations true
+            }
+            target() {
+                packageName('com.hopever.springexample.db.jooq')
+                directory('src/main/java')
+            }
+        }
+    }
+    org.jooq.util.GenerationTool.generate(
+            javax.xml.bind.JAXB.unmarshal(new StringReader(writer.toString()), org.jooq.util.jaxb.Configuration.class)
+    )
+}
