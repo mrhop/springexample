@@ -1,6 +1,7 @@
 package com.hopever.springexample.db.rdbs;
 
-import com.hopever.springexample.db.jooq.tables.pojos.Test;
+//import com.hopever.springexample.db.jooq.tables.pojos.Test;
+import com.hopever.springexample.db.jooq.h2.tables.pojos.Test;
 import org.springframework.data.repository.CrudRepository;
 
 import java.io.Serializable;

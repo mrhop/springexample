@@ -33,7 +33,6 @@ public class JooqExample implements CommandLineRunner {
         } catch (Exception e) {
             System.out.println("some exceptions here");
         }
-
         System.out.println("rows count:"+testService.tryGetRdbs());
     }
 

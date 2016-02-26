@@ -71,4 +71,6 @@ js: jquery tagcanvas tech
 
 now rabbitmq transaction then jdbc transaction also mangodb and redis
 
-then xa transaction
+XA transaction
+1.Atomikos
+AtomikosXAConnectionFactory pool connection
