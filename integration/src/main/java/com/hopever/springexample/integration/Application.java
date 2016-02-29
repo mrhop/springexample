@@ -23,7 +23,7 @@ public class Application {
 
         ConfigurableApplicationContext ctx = SpringApplication.run(Application.class, args);
         TempConverter converter = ctx.getBean(TempConverter.class);
-        System.out.println(converter.fahrenheitToCelcius(68.0f));
+        System.out.println("where is it?"+converter.fahrenheitToCelcius(68.0f));
         ctx.close();
 
     }
