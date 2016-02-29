@@ -49,7 +49,9 @@ dependencies {
     runtime 'com.h2database:h2'
     compile 'mysql:mysql-connector-java'
     compile 'org.springframework.boot:spring-boot-starter-integration'
-
+    compile 'org.springframework.integration:spring-integration-java-dsl'
+    compile 'org.springframework.integration:spring-integration-xml'
+    compile 'org.springframework.integration:spring-integration-ws'
 }
 compileJava.dependsOn(processResources)
 
