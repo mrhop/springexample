@@ -7,7 +7,7 @@ package com.hopever.springexample.db.amqp;
 //@ConditionalOnClass({RabbitTemplate.class, AMQP.Channel.class})
 //@EnableConfigurationProperties(RabbitProperties.class)
 public class RabbitAutoConfiguration {
-
+//
 //    @Autowired
 //    private ConnectionFactory connectionFactory;
 //

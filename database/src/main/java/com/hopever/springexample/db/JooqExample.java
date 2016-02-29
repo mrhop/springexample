@@ -28,12 +28,12 @@ public class JooqExample implements CommandLineRunner {
 //        this.create.insertInto(Test.TEST,Test.TEST.ID,Test.TEST.NAME).values(1,"test测试").execute();
 //        Object o = this.create.selectFrom(Test.TEST).fetch();
 //        System.out.println("acb");
-        try {
-            testService.tryRdbs();
-        } catch (Exception e) {
-            System.out.println("some exceptions here");
-        }
-        System.out.println("rows count:"+testService.tryGetRdbs());
+//        try {
+//            testService.tryRdbs();
+//        } catch (Exception e) {
+//            System.out.println("some exceptions here");
+//        }
+        //System.out.println("rows count:"+testService.tryGetRdbs());
     }
 
 }

@@ -5,8 +5,9 @@ package com.hopever.springexample.db.amqp;
  */
 //@Service
 public class AmqpReceiver {
-//   @RabbitListener(queues = "test")
+//    @RabbitListener(queues = "test")
+//    @Transactional
 //    public void processMessage(String content) {
-//        System.out.println(content);
+//        System.out.println(content+1/0);
 //    }
 }

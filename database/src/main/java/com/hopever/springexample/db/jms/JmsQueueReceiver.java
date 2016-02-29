@@ -5,9 +5,16 @@ package com.hopever.springexample.db.jms;
  */
 //@Service
 public class JmsQueueReceiver {
-//    @JmsListener(destination = "test1")
-//    @JmsListeners({@JmsListener(destination = "testPeer"),@JmsListener(destination = "testPub",subscription = "TestClient",containerFactory = "jmsListenerContainerPubSubFactory")})
-//    public void receiveQueue(String text){
+
+//    @Autowired(required = false)
+//    private JmsListenerContainerFactory jmsListenerContainerFactory;
+//
+//    @Autowired
+//    TestService testService;
+//    @JmsListeners({@JmsListener(destination = "testPeer")/*,@JmsListener(destination = "testPub",subscription = "TestClient",containerFactory = "jmsListenerContainerPubSubFactory")*/})
+//    @Transactional
+//    public void receiveQueue(String text) throws Exception {
+//        testService.tryRdbs();
 //        System.out.println(text);
 //    }
 

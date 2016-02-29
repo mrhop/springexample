@@ -1,5 +1,7 @@
 package com.hopever.springexample.db;
 
+import com.hopever.springexample.db.service.TestService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -10,19 +12,19 @@ import org.springframework.stereotype.Component;
 @Component
 @Order(1)
 public class JmsBean implements CommandLineRunner {
-//    @Autowired
+    //    @Autowired
 //    JmsQueueSender jmsQueueSender;
 //    @Autowired
 //    JmsTemplate jmsTemplate;
-//    @Autowired
-//    TestService testService;
+    @Autowired
+    TestService testService;
 
     @Override
     public void run(String... args) throws Exception {
 //        jmsQueueSender.sendMsg();
 //        try {
 //            testService.trySend();
-//        }catch (Exception e){
+//        } catch (Exception e) {
 //            System.out.println("do nothing");
 //        }
     }

@@ -35,18 +35,21 @@ public class TestService {
 //    @Autowired
 //    private JmsMessagingTemplate jmsMessagingTemplate;
 
-    //    @Transactional
-//    public void trySend() throws Exception {
+//    @Transactional
+    public void trySend() throws Exception {
 //        jmsMessagingTemplate.convertAndSend("testPeer", "hello queue world");
 //        amqpTemplate.convertAndSend("test", "amqp value" + 1 / 0);
 //        System.out.println("nothing send");
-//    }
+    }
+
     @Autowired
     private TestRepository testRepository;
     @Autowired
     TransactionManager transactionManager;
     @Autowired
     PlatformTransactionManager platformTransactionManager;
+
+
     @Transactional
     public void tryRdbs() throws Exception {
         com.mysql.jdbc.jdbc2.optional.MysqlXADataSource a;

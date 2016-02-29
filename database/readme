@@ -70,6 +70,7 @@ rabbitmq management http://localhost:15672/ guest/guest
 js: jquery tagcanvas tech
 
 now rabbitmq transaction then jdbc transaction also mangodb and redis
+rabbitmq 不赞成XA事务，而建议将mq与其他进行区分，在commit之后，另起local事务进行发送或者listen
 
 XA transaction
 1.Atomikos
