@@ -6,10 +6,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.core.annotation.Order;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +15,9 @@ import java.util.Scanner;
 /**
  * Created by Donghui Huo on 2016/3/2.
  */
-@Configuration
-@Order(4)
-@ImportResource("/META-INF/spring/integration/enricher/enricher-context.xml")
+//@Configuration
+//@Order(4)
+//@ImportResource("/META-INF/spring/integration/enricher/enricher-context.xml")
 public class EnricherCommand implements CommandLineRunner, ApplicationContextAware {
 
     private static Logger logger = LoggerFactory.getLogger(EnricherCommand.class);

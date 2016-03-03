@@ -54,6 +54,7 @@ dependencies {
     compile 'org.springframework.integration:spring-integration-xml'
     compile 'org.springframework.integration:spring-integration-ws'
     compile 'org.springframework.integration:spring-integration-amqp'
+    compile 'org.springframework.integration:spring-integration-feed'
 }
 compileJava.dependsOn(processResources)
 
