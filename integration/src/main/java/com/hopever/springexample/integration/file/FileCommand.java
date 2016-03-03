@@ -2,16 +2,13 @@ package com.hopever.springexample.integration.file;
 
 import com.hopever.springexample.integration.util.UtilCommand;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.core.annotation.Order;
 
 /**
  * Created by Donghui Huo on 2016/3/3.
  */
-@Configuration
-@Order(6)
-@ImportResource("/META-INF/spring/integration/file/file-context.xml")
+//@Configuration
+//@Order(6)
+//@ImportResource("/META-INF/spring/integration/file/file-context.xml")
 public class FileCommand extends UtilCommand implements CommandLineRunner {
 
 

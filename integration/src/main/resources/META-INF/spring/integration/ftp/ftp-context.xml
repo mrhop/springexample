@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-ftp="http://www.springframework.org/schema/integration/ftp"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/integration/ftp http://www.springframework.org/schema/integration/ftp/spring-integration-ftp.xsd">
+
+    <context:property-placeholder location="classpath:/META-INF/spring/integration/ftp/user.properties"/>
+
+    <bean id="ftpClientFactory" class="org.springframework.integration.ftp.session.DefaultFtpSessionFactory">
+        <property name="host" value="${host}"/>
+        <property name="port" value="${availableServerPort}"/>
+        <property name="username" value="${userid}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+   <int-ftp:inbound-channel-adapter id="ftpInbound"
+                                     channel="ftpChannel"
+                                     session-factory="ftpClientFactory"
+                                     filename-pattern="*.txt"
+                                     auto-create-local-directory="true"
+                                     delete-remote-files="false"
+                                     remote-directory="/"
+                                     local-directory="#{ T(com.hopever.springexample.integration.ftp.FtpCommand).LOCAL_FTP_TEMP_DIR}/ftpInbound">
+        <int:poller fixed-rate="1000"/>
+    </int-ftp:inbound-channel-adapter>
+
+    <int:channel id="ftpChannel">
+        <int:queue/>
+    </int:channel>
+
+    <int:channel id="ftpChannelOut"/>
+
+    <int-ftp:outbound-channel-adapter  id="ftpOutbound"
+                                       channel="ftpChannelOut"
+                                       remote-directory="/"
+                                       session-factory="ftpClientFactory">
+        <int-ftp:request-handler-advice-chain>
+            <int:retry-advice />
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-channel-adapter>
+
+    <!--gateway-->
+    <int:gateway id="gw" service-interface="com.hopever.springexample.integration.ftp.ToFtpFlowGateway"
+                 default-request-channel="inbound"/>
+    <int-ftp:outbound-gateway id="gatewayLS"
+                              session-factory="ftpClientFactory"
+                              request-channel="inbound"
+                              command="ls"
+                              expression="payload"
+                              reply-channel="toSplitter">
+        <int-ftp:request-handler-advice-chain>
+            <int:retry-advice />
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-gateway>
+    <int:channel id="toSplitter">
+        <int:interceptors>
+            <int:wire-tap channel="logger"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int:logging-channel-adapter id="logger" log-full-message="true"/>
+
+    <int:splitter id="splitter" input-channel="toSplitter" output-channel="toGet"/>
+    <int:channel id="toGet" />
+    <int-ftp:outbound-gateway id="gatewayGET"
+                              local-directory="#{ T(com.hopever.springexample.integration.ftp.FtpCommand).LOCAL_FTP_TEMP_DIR}/gatewayGET"
+                              session-factory="ftpClientFactory"
+                              request-channel="toGet"
+                              reply-channel="toRemoveChannel"
+                              command="get"
+                              command-options="-P"
+                              expression="payload.remoteDirectory + '/' + payload.filename">
+        <int-ftp:request-handler-advice-chain>
+            <int:retry-advice />
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-gateway>
+    <int:channel id="toRemoveChannel">
+        <int:interceptors>
+            <int:wire-tap channel="logger2"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int:logging-channel-adapter id="logger2" log-full-message="true"/>
+    <int-ftp:outbound-gateway id="gatewayRM"
+                              session-factory="ftpClientFactory"
+                              expression="headers['file_remoteDirectory'] + '/' + headers['file_remoteFile']"
+                              request-channel="toRemoveChannel"
+                              command="rm"
+                              reply-channel="aggregateResultsChannel">
+        <int-ftp:request-handler-advice-chain>
+            <int:retry-advice />
+        </int-ftp:request-handler-advice-chain>
+    </int-ftp:outbound-gateway>
+
+    <int:aggregator input-channel="aggregateResultsChannel"/>
+
+</beans>
