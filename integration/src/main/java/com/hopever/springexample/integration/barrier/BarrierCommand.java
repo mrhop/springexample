@@ -8,16 +8,13 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.core.annotation.Order;
 
 /**
  * Created by Donghui Huo on 2016/3/1.
  */
-@Configuration
-@ImportResource("/META-INF/spring/integration/barrier/server-context.xml")
-@Order(2)
+//@Configuration
+//@ImportResource("/META-INF/spring/integration/barrier/server-context.xml")
+//@Order(2)
 public class BarrierCommand  implements CommandLineRunner,ApplicationContextAware{
 
     private  ApplicationContext applicationContext;
