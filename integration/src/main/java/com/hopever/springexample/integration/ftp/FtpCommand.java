@@ -8,9 +8,6 @@ import org.apache.ftpserver.listener.ListenerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.core.annotation.Order;
 
 import java.io.File;
 import java.util.List;
@@ -18,9 +15,9 @@ import java.util.List;
 /**
  * Created by Donghui Huo on 2016/3/3.
  */
-@Configuration
-@Order(7)
-@ImportResource("/META-INF/spring/integration/ftp/ftp-context.xml")
+//@Configuration
+//@Order(7)
+//@ImportResource("/META-INF/spring/integration/ftp/ftp-context.xml")
 public class FtpCommand extends UtilCommand implements CommandLineRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(UtilCommand.class);
 
