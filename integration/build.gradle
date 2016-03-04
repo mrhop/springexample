@@ -41,12 +41,20 @@ dependencyManagement {
     }
 }
 dependencies {
+    compile ('org.apache.activemq:activemq-karaf'){
+        exclude module: "pax-logging-api"
+    }
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-amqp'
+    //active-mq
+    compile 'org.springframework:spring-jms'
+    compile 'org.apache.activemq:activemq-broker'
+    compile 'org.apache.activemq:activemq-pool'
+
     runtime 'com.h2database:h2'
     compile 'mysql:mysql-connector-java'
     compile 'org.springframework.boot:spring-boot-starter-integration'
@@ -58,6 +66,8 @@ dependencies {
     compile 'org.springframework.integration:spring-integration-file'
     compile 'org.springframework.integration:spring-integration-ftp'
     compile 'org.apache.ftpserver:ftpserver-core:1.0.6'
+    compile 'org.springframework.integration:spring-integration-jdbc'
+    compile 'org.springframework.integration:spring-integration-jms'
 }
 compileJava.dependsOn(processResources)
 
