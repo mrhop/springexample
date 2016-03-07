@@ -651,3 +651,96 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:D:/workspace
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:342)
 	... 63 more
+2016-03-07 11:26:11 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+drop table OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 11:26:11 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 11:26:11 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 11:58:55 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 11:58:55 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 12:23:25 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 12:23:25 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 12:25:36 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 12:25:36 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 12:50:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 12:50:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 12:52:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 12:52:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 12:57:30 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 12:57:30 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:32:06 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:32:06 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:35:10 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:35:10 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:36:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:36:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:37:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:37:15 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:38:01 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:38:01 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:38:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:38:19 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 14:39:32 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 14:39:32 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
+2016-03-07 15:15:29 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PEOPLE" not found; SQL statement:
+drop table PEOPLE [42102-190]
+2016-03-07 15:15:29 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OPENJPA_SEQUENCE_TABLE" not found; SQL statement:
+DROP TABLE OPENJPA_SEQUENCE_TABLE [42102-190]
