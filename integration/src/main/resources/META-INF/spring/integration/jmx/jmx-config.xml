@@ -17,7 +17,7 @@
     <context:component-scan base-package="com.hopever.springexample.integration.jmx"/>
 
     <jmx:attribute-polling-channel-adapter channel="seconds"
-                                           object-name="org.springframework.integration.samples.jmx:type=StopWatch,name=stopWatch"
+                                           object-name="com.hopever.springexample.integration.jmx:type=StopWatch,name=stopWatch"
                                            attribute-name="Seconds">
         <si:poller max-messages-per-poll="1" fixed-delay="1000"/>
     </jmx:attribute-polling-channel-adapter>
@@ -29,7 +29,7 @@
     <si:filter input-channel="seconds" expression="payload >= 10" output-channel="reset"/>
 
     <jmx:operation-invoking-channel-adapter id="reset"
-                                            object-name="org.springframework.integration.samples.jmx:type=StopWatch,name=stopWatch"
+                                            object-name="com.hopever.springexample.integration.jmx:type=StopWatch,name=stopWatch"
                                             operation-name="reset"/>
 
 </beans>
