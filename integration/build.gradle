@@ -51,6 +51,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-amqp'
     compile 'org.springframework.boot:spring-boot-starter-mail'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     //active-mq
     compile 'org.springframework:spring-jms'
     compile 'org.apache.activemq:activemq-broker'
@@ -73,6 +74,7 @@ dependencies {
     compile 'org.springframework.integration:spring-integration-jpa'
     //compile 'org.springframework.integration:spring-integration-kafka'
     compile 'org.springframework.integration:spring-integration-mail'
+    compile 'org.springframework.integration:spring-integration-mongodb'
 }
 compileJava.dependsOn(processResources)
 
