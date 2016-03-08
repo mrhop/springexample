@@ -75,6 +75,10 @@ dependencies {
     //compile 'org.springframework.integration:spring-integration-kafka'
     compile 'org.springframework.integration:spring-integration-mail'
     compile 'org.springframework.integration:spring-integration-mongodb'
+    compile 'org.springframework.integration:spring-integration-mqtt'
+    compile 'org.springframework.integration:spring-integration-sftp'
+    compile 'org.springframework.integration:spring-integration-ip'
+    compile 'org.springframework.integration:spring-integration-ip'
 }
 compileJava.dependsOn(processResources)
 
