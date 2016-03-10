@@ -15,5 +15,12 @@ spring:
 jpa:
     generate-ddl: true
 
+splunk:
+   host: localhost
+   port: 8089
+   username: admin
+   password: admin
+   owner: admin
+
 
 
