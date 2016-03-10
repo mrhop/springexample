@@ -1,8 +1,8 @@
 package com.hopever.springexample.integration.sftp;
 
+import com.hopever.springexample.integration.util.UtilCommand;
 import com.jcraft.jsch.ChannelSftp;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.integration.file.remote.RemoteFileTemplate;
 import org.springframework.integration.file.remote.session.CachingSessionFactory;
 import org.springframework.integration.file.remote.session.SessionFactory;
@@ -13,12 +13,15 @@ import java.util.List;
 /**
  * Created by Donghui Huo on 2016/3/8.
  */
-public class SftpOutboundGatewaySample {
+//@Configuration
+//@Order(18)
+//@ImportResource("META-INF/spring/integration/sftp/SftpOutboundGatewaySample-context.xml")
+public class SftpOutboundGatewaySample extends UtilCommand implements CommandLineRunner {
 
-    public static void main(String[] args){
-        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext(
-                "classpath:META-INF/spring/integration/sftp/SftpOutboundGatewaySample-context.xml");
-        ToSftpFlowGateway toFtpFlow = ctx.getBean(ToSftpFlowGateway.class);
+
+    @Override
+    public void run(String... args) throws Exception {
+        ToSftpFlowGateway toFtpFlow = applicationContext.getBean(ToSftpFlowGateway.class);
         RemoteFileTemplate<ChannelSftp.LsEntry> template = null;
         String file1 = "1.ftptest";
         String file2 = "2.ftptest";
@@ -30,7 +33,7 @@ public class SftpOutboundGatewaySample {
             new File(tmpDir, file2).delete();
 
             @SuppressWarnings("unchecked")
-            SessionFactory<ChannelSftp.LsEntry> sessionFactory = ctx.getBean(CachingSessionFactory.class);
+            SessionFactory<ChannelSftp.LsEntry> sessionFactory = applicationContext.getBean(CachingSessionFactory.class);
             template = new RemoteFileTemplate<ChannelSftp.LsEntry>(sessionFactory);
             SftpTestUtils.createTestFiles(template, file1, file2);
 
@@ -45,7 +48,6 @@ public class SftpOutboundGatewaySample {
         }
         finally {
             SftpTestUtils.cleanUp(template, file1, file2);
-            ctx.close();
         }
     }
 }

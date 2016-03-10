@@ -10,7 +10,7 @@
     <context:property-placeholder location="classpath:META-INF/spring/integration/sftp/user.properties"/>
 
     <bean id="serverPort" class="java.lang.String">
-        <constructor-arg value="#{'${port}' == '-1' ? T(org.springframework.integration.samples.sftp.EmbeddedSftpServer).PORT : '${port}'}"/>
+        <constructor-arg value="#{'${port}' == '-1' ? T(com.hopever.springexample.integration.sftp.EmbeddedSftpServer).PORT : '${port}'}"/>
     </bean>
 
     <bean class="com.hopever.springexample.integration.sftp.EmbeddedSftpServer">

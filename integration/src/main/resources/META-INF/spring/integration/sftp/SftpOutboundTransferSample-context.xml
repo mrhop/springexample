@@ -26,7 +26,7 @@
     <int:channel id="inputChannel"/>
 
     <int-sftp:outbound-channel-adapter id="sftpOutboundAdapter"
-                                       session-factory="sftpSessionFactory"
+                                       session-factory="defaultSftpSessionFactory"
                                        channel="inputChannel"
                                        remote-filename-generator-expression="payload.getName() + '_foo'"
                                        remote-directory="si.sftp.sample">

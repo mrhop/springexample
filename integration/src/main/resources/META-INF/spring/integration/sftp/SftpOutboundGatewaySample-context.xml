@@ -27,7 +27,7 @@
     </bean>
 
     <int-sftp:outbound-gateway id="gatewayLS"
-                               session-factory="sftpSessionFactory"
+                               session-factory="defaultSftpSessionFactory"
                                request-channel="inbound"
                                command="ls"
                                expression="payload"
@@ -41,7 +41,7 @@
 
     <int-sftp:outbound-gateway id="gatewayGET"
                                local-directory="#{ T(System).getProperty('java.io.tmpdir')}"
-                               session-factory="sftpSessionFactory"
+                               session-factory="defaultSftpSessionFactory"
                                request-channel="toGet"
                                reply-channel="toRm"
                                command="get"
@@ -53,7 +53,7 @@
     </int-sftp:outbound-gateway>
 
     <int-sftp:outbound-gateway id="gatewayRM" reply-channel="aggregateResultsChannel"
-                               session-factory="sftpSessionFactory"
+                               session-factory="defaultSftpSessionFactory"
                                expression="headers['file_remoteDirectory'] + headers['file_remoteFile']"
                                request-channel="toRm"
                                command="rm">

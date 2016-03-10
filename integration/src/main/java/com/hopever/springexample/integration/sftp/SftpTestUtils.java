@@ -18,7 +18,7 @@ public class SftpTestUtils {
 
     public static void createTestFiles(RemoteFileTemplate<ChannelSftp.LsEntry> template, final String... fileNames) {
         if (template != null) {
-            final ByteArrayInputStream stream = new ByteArrayInputStream("foo".getBytes());
+           // final ByteArrayInputStream stream = new ByteArrayInputStream("foo".getBytes());
             template.execute(new SessionCallback<ChannelSftp.LsEntry, Void>() {
 
                 @Override
@@ -30,7 +30,7 @@ public class SftpTestUtils {
                            e.printStackTrace();
                     }
                     for (int i = 0; i < fileNames.length; i++) {
-                        stream.reset();
+                        final ByteArrayInputStream stream = new ByteArrayInputStream("foo".getBytes());
                         session.write(stream, "si.sftp.sample/" + fileNames[i]);
                     }
                     return null;

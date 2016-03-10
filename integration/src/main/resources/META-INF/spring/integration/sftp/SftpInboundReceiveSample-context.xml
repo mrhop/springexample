@@ -26,7 +26,7 @@
     <int-sftp:inbound-channel-adapter id="sftpInbondAdapter"
                                       auto-startup="false"
                                       channel="receiveChannel"
-                                      session-factory="sftpSessionFactory"
+                                      session-factory="defaultSftpSessionFactory"
                                       local-directory="file:local-dir"
                                       remote-directory="si.sftp.sample"
                                       auto-create-local-directory="true"
