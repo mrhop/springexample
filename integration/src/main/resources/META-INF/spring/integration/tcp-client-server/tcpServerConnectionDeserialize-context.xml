@@ -39,9 +39,8 @@
 
     <int:channel id="clientBytes2StringChannel"/>
 
-    <!--<int:object-to-string-transformer id="clientBytes2String"-->
-                                      <!--input-channel="clientBytes2StringChannel" />-->
-
+    <int:object-to-string-transformer id="clientBytes2String"
+                                      input-channel="clientBytes2StringChannel" />
     <!-- Server side -->
     <!-- When creating the socket factory on the server side, we specify both the serializer and deserializer
     which deals with both accepting a stream formatted with the Stx-Etx bytes as well as sending a stream
@@ -64,6 +63,11 @@
     <!-- We leave a message listener off of this channel on purpose because we hook
     one up before the test actually runs (see the unit test associated with this
     context file) -->
-    <int:channel id="incomingServerChannel" />
-
+    <int:channel id="incomingServerChannel" datatype="com.hopever.springexample.integration.tcpclientserver.CustomOrder" />
+    <int:service-activator input-channel="incomingServerChannel"
+                           ref="anotherEchoService"
+                           method="test"
+    />
+    <bean id="anotherEchoService"
+          class="com.hopever.springexample.integration.tcpclientserver.AnotherEchoService" />
 </beans>
