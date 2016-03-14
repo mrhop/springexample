@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/ftp/ftp-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/common.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/aggregation.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/inboundGateway.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/outboundGateway.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/inboundChannelAdapter.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jms/outboundChannelAdapter.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jmx/jmx-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jpa/jpa-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jpa/commonJpa-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/feed/feed-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/file/file-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/http/servlet-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/http/http-outbound-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/jdbc/jdbc-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/mail/mail-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/sftp/SftpSampleCommon.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/sftp/SftpInboundReceiveSample-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/sftp/SftpOutboundGatewaySample-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/sftp/SftpOutboundTransferSample-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/quote/quote-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/splunk/si-splunk-example-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/barrier/client-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/barrier/server-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/mongodb/mongodb-in-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/mongodb/mongodb-out-config.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/oddeven/cronOddEvenDemo.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/oddeven/intervalOddEvenDemo.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/01-chain/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/05-router/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/06-filter/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/07-gateway/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/02-splitter/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/03-aggregator/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/08-errorhandling/integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/04-externalgateway/real-gateways.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/testing/04-externalgateway/main-integration-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/enricher/enricher-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/tcp-amqp/tcp-amqp-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/controlbus/controlbus-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/helloworld/helloworld-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/web-sockets/client-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/tcp-client-server/tcpClientServerDemo-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/tcp-client-server/tcpServerCustomSerialize-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/tcp-client-server/tcpClientServerDemo-conversion-context.xml</file>
+          <file>file://$MODULE_DIR$/resources/META-INF/spring/integration/tcp-client-server/tcpServerConnectionDeserialize-context.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

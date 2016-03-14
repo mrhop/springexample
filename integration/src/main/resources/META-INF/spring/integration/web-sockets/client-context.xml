@@ -15,7 +15,7 @@
 
     <int-websocket:client-container id="clientWebSocketContainer"
                                     client="webSocketClient"
-                                    uri="ws://localhost:8080/time/websocket"/>
+                                    uri="ws://localhost:${local.server.port:8080}/time/websocket"/>
 
     <int-websocket:inbound-channel-adapter container="clientWebSocketContainer"
                                            channel="webSocketInputChannel"/>

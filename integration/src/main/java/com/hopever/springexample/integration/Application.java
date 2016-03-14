@@ -9,12 +9,12 @@ import org.springframework.integration.annotation.IntegrationComponentScan;
  */
 @SpringBootApplication
 @IntegrationComponentScan
+//@EnableWebSocket
 public class Application {
 
 
 
     public static void main(String[] args) {
-
      SpringApplication.run(Application.class, args);
 //        TempConverter converter = ctx.getBean(TempConverter.class);
 //        System.out.println("where is it?"+converter.fahrenheitToCelcius(68.0f));

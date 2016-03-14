@@ -1,10 +1,12 @@
 package com.hopever.springexample.integration.websockets;
 
 import com.hopever.springexample.integration.util.UtilCommand;
+import org.apache.catalina.Context;
+import org.apache.tomcat.websocket.server.WsSci;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.context.embedded.tomcat.TomcatContextCustomizer;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
 import org.springframework.integration.annotation.ServiceActivator;
@@ -27,6 +29,7 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.support.GenericMessage;
 
 import java.text.DateFormat;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
@@ -35,14 +38,32 @@ import java.util.concurrent.Executors;
 /**
  * Created by Donghui Huo on 2016/3/11.
  */
-@Configuration
-@Order(23)
-//@ImportResource("META-INF/spring/integration/web-sockets/client-context.xml")
+//@Configuration
+//@Order(23)
 public class WebSocketsCommand extends UtilCommand implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
 
+    }
+
+    @Bean
+    public TomcatEmbeddedServletContainerFactory tomcatContainerFactory() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+        factory.setTomcatContextCustomizers(Arrays.asList(new TomcatContextCustomizer[] {
+                tomcatContextCustomizer()
+        }));
+        return factory;
+    }
+
+    @Bean
+    public TomcatContextCustomizer tomcatContextCustomizer() {
+        return new TomcatContextCustomizer() {
+            @Override
+            public void customize(Context context) {
+                context.addServletContainerInitializer(new WsSci(), null);
+            }
+        };
     }
 
 

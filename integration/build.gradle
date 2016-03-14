@@ -74,14 +74,18 @@ dependencies {
     //compile 'org.springframework.integration:spring-integration-jmx'
     compile 'org.springframework.integration:spring-integration-jpa'
     //compile 'org.springframework.integration:spring-integration-kafka'
-    compile 'org.springframework.integration:spring-integration-mail'
-    compile 'org.springframework.integration:spring-integration-mongodb'
-    compile 'org.springframework.integration:spring-integration-mqtt'
+    //compile 'org.springframework.integration:spring-integration-mail'
+    //compile 'org.springframework.integration:spring-integration-mongodb'
+    //compile 'org.springframework.integration:spring-integration-mqtt'
     compile 'org.springframework.integration:spring-integration-sftp'
     compile 'org.springframework.integration:spring-integration-websocket'
-    compile 'org.springframework.integration:spring-integration-ip'
+    //compile 'org.springframework.integration:spring-integration-ip'
 //    compile 'org.springframework.integration:spring-integration-splunk'
 //    compile 'com.splunk:splunk'
+    compile 'org.springframework.integration:spring-integration-xmpp'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework:spring-test'
+    testCompile 'org.mockito:mockito-core'
 }
 compileJava.dependsOn(processResources)
 
