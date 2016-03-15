@@ -1,11 +1,6 @@
 package com.hopever.springexample.db.amqp;
 
-import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-
+//import org.springframework.amqp.core.AmqpTemplate;
 /**
  * Created by huodh on 2/21/16.
  */
