@@ -48,3 +48,18 @@ crm系统（本质的学习）
 核心还在于数据建模
 
 需要进一步学习【amazon 云】，学习架构infoq
+
+
+
+oauth2--------------------------------------------------------
+
+
+oauth2 auth server（authen and author）（同时根据oauth2 auth plugins/resource server给出特定的授权选项）
+
+oauth2 auth plugins(changable)【mq client receive from the cms or crm system】 plugin 控制大线条（大的权限阶梯），resource拆分小线条
+
+oauth2 basic resource server(basic resource -- file/cms[内容升华为资源来进行管控])
+
+oauth2 auth management system(basic system)（核心的管控页面，管控基本的权限分组和最高级别的权限分组，以及给plugins指定的权限分组指定资源以及操作行为）。
+
+
